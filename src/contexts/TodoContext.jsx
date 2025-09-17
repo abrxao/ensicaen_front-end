@@ -1,4 +1,21 @@
-import React, { createContext, useContext, useEffect, useReducer } from "react";
+import { useState, createContext } from "react";
+
+// Step 1: Create a Context
+const ThemeContext = createContext("light", () => "light");
+
+const ThemeProvider = ({ children }) => {
+  const [theme, setTheme] = useState("light");
+
+  return (
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
+};
+
+export { ThemeContext, ThemeProvider };
+
+/* import React, { createContext, useContext, useEffect, useReducer } from "react";
 import {
   TODO_ACTIONS,
   todoReducer,
@@ -68,3 +85,4 @@ export const TodoProvider = ({ children }) => {
 
   return <TodoContext.Provider value={value}>{children}</TodoContext.Provider>;
 };
+ */
