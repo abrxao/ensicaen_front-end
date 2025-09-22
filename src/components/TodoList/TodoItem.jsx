@@ -1,14 +1,14 @@
 import { useContext, useState } from "react";
-import { ThemeContext } from "../../contexts/TodoContext";
+import { TodoContext } from "../../contexts/TodoContext";
+import { todoReducer } from "../../reducers/TodoReducer";
 import "./TodoItem.css";
-export function TodoItem() {
+export function TodoItem({ id }) {
   // TODO -
   // Integrate context
-  const { theme, setTheme } = useContext(ThemeContext);
+  const { todoState, setTodoState } = useContext(TodoContext);
   const [isCompleted, setIsCompleted] = useState(true);
   const [isEditing, setIsEditing] = useState(false);
-
-  const [text, setText] = useState(theme);
+  const [text, setText] = useState(todoState.todos[id].text);
 
   return (
     <div className="todo-item">
@@ -24,17 +24,37 @@ export function TodoItem() {
           defaultValue={text}
           onChange={(event) => {
             event.preventDefault();
-            setIsCompleted((value) => !value);
             setText(event.target.value);
           }}
         />
       ) : (
-        <span>{theme}</span>
+        <span>{todoState.todos[id].text}</span>
       )}
+      <button
+        onClick={() => {
+          const updateStateObj = todoReducer(todoState, {
+            type: "DELETE",
+            payload: {
+              ...todoState.todos[id],
+            },
+          });
+          setTodoState(updateStateObj);
+          setIsEditing(false);
+        }}
+      >
+        DELETE
+      </button>
       {isEditing ? (
         <button
           onClick={() => {
-            setTheme(text);
+            const updateStateObj = todoReducer(todoState, {
+              type: "UPDATE",
+              payload: {
+                ...todoState.todos[id],
+                text: text,
+              },
+            });
+            setTodoState(updateStateObj);
             setIsEditing(false);
           }}
         >
@@ -43,7 +63,6 @@ export function TodoItem() {
       ) : (
         <button
           onDoubleClick={() => {
-            console.log("true");
             setIsEditing(true);
           }}
         >

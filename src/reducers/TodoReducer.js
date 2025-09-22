@@ -31,6 +31,21 @@ export const todoReducer = (state, action) => {
         ...state,
         todos: [...state.todos, action.payload],
       };
+    case TODO_ACTIONS.UPDATE:
+      const updatedTodos = state.todos.map((todo) =>
+        todo.id === action.payload.id
+          ? { ...todo, text: action.payload.text }
+          : todo
+      );
+      return {
+        ...state,
+        todos: updatedTodos,
+      };
+    case TODO_ACTIONS.DELETE:
+      return {
+        ...state,
+        todos: state.todos.filter((todo) => todo.id !== action.payload.id),
+      };
 
     // TODO: Implémentez les autres actions
   }

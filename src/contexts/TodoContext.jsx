@@ -1,19 +1,20 @@
 import { useState, createContext } from "react";
+import { initialState as todoInitialState } from "../reducers/TodoReducer";
 
 // Step 1: Create a Context
-const ThemeContext = createContext("light", () => "light");
+const TodoContext = createContext(todoInitialState);
 
-const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState("light");
+const TodoProvider = ({ children }) => {
+  const [todoState, setTodoState] = useState(todoInitialState);
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
+    <TodoContext.Provider value={{ todoState, setTodoState }}>
       {children}
-    </ThemeContext.Provider>
+    </TodoContext.Provider>
   );
 };
 
-export { ThemeContext, ThemeProvider };
+export { TodoContext as TodoContext, TodoProvider };
 
 /* import React, { createContext, useContext, useEffect, useReducer } from "react";
 import {

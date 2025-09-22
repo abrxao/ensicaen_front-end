@@ -1,16 +1,14 @@
 import "./App.css";
 import { BoxProvider } from "./components/BoxProvider";
-import { TodoItem } from "./components/TodoList/TodoItem";
-import { ThemeProvider } from "./contexts/TodoContext";
+import { TodoList } from "./components/TodoList/TodoList";
+import { TodoProvider } from "./contexts/TodoContext";
 
 function App() {
   return (
-    <>
-      <ThemeProvider>
-        <TodoItem />
-        <BoxProvider />
-      </ThemeProvider>
-    </>
+    <TodoProvider>
+      <TodoList />
+      <BoxProvider />
+    </TodoProvider>
   );
 }
 

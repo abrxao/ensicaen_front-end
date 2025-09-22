@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import { ThemeContext } from "../contexts/TodoContext";
+import { TodoContext } from "../contexts/TodoContext";
 
 export function BoxProvider() {
-  const { theme } = useContext(ThemeContext);
+  const { todoState } = useContext(TodoContext);
 
-  return <h3>{theme}</h3>;
+  return <h3>{todoState.todos[0].text}</h3>;
 }
