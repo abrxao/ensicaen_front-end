@@ -1,14 +1,14 @@
-import { useState, createContext } from "react";
-import { initialState as todoInitialState } from "../reducers/TodoReducer";
+import { createContext, useReducer } from "react";
+import { initialState, todoReducer } from "../reducers/TodoReducer";
 
 // Step 1: Create a Context
-const TodoContext = createContext(todoInitialState);
+const TodoContext = createContext(initialState);
 
 const TodoProvider = ({ children }) => {
-  const [todoState, setTodoState] = useState(todoInitialState);
+  const [todoState, dispatch] = useReducer(todoReducer, initialState);
 
   return (
-    <TodoContext.Provider value={{ todoState, setTodoState }}>
+    <TodoContext.Provider value={{ todoState, dispatch }}>
       {children}
     </TodoContext.Provider>
   );

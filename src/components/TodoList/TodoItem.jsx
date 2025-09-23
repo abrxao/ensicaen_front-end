@@ -1,11 +1,10 @@
 import { useContext, useState } from "react";
 import { TodoContext } from "../../contexts/TodoContext";
-import { todoReducer } from "../../reducers/TodoReducer";
 import "./TodoItem.css";
 export function TodoItem({ id }) {
   // TODO -
   // Integrate context
-  const { todoState, setTodoState } = useContext(TodoContext);
+  const { todoState, dispatch } = useContext(TodoContext);
   const [isCompleted, setIsCompleted] = useState(true);
   const [isEditing, setIsEditing] = useState(false);
   const [text, setText] = useState(todoState.todos[id].text);
@@ -21,7 +20,7 @@ export function TodoItem({ id }) {
       />
       {isEditing ? (
         <input
-          defaultValue={text}
+          defaultValue={todoState.todos[id].text}
           onChange={(event) => {
             event.preventDefault();
             setText(event.target.value);
@@ -30,31 +29,17 @@ export function TodoItem({ id }) {
       ) : (
         <span>{todoState.todos[id].text}</span>
       )}
-      <button
-        onClick={() => {
-          const updateStateObj = todoReducer(todoState, {
-            type: "DELETE",
-            payload: {
-              ...todoState.todos[id],
-            },
-          });
-          setTodoState(updateStateObj);
-          setIsEditing(false);
-        }}
-      >
-        DELETE
-      </button>
+
       {isEditing ? (
         <button
           onClick={() => {
-            const updateStateObj = todoReducer(todoState, {
+            dispatch({
               type: "UPDATE",
               payload: {
                 ...todoState.todos[id],
                 text: text,
               },
             });
-            setTodoState(updateStateObj);
             setIsEditing(false);
           }}
         >
@@ -69,7 +54,19 @@ export function TodoItem({ id }) {
           Edit
         </button>
       )}
-      <button onClick={() => console.log(isCompleted)}>Delete</button>
+      <button
+        onClick={() => {
+          dispatch({
+            type: "DELETE",
+            payload: {
+              ...todoState.todos[id],
+            },
+          });
+          setIsEditing(false);
+        }}
+      >
+        Delete
+      </button>
     </div>
   );
 }
