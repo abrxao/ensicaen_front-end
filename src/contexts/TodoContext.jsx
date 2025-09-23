@@ -1,20 +1,78 @@
-import { createContext, useReducer } from "react";
-import { initialState, todoReducer } from "../reducers/TodoReducer";
+import { createContext, useReducer, useContext } from "react";
+import {
+  initialState,
+  todoReducer,
+  TODO_ACTIONS,
+} from "../reducers/TodoReducer";
 
 // Step 1: Create a Context
 const TodoContext = createContext(initialState);
 
-const TodoProvider = ({ children }) => {
-  const [todoState, dispatch] = useReducer(todoReducer, initialState);
-
-  return (
-    <TodoContext.Provider value={{ todoState, dispatch }}>
-      {children}
-    </TodoContext.Provider>
-  );
+export const useTodoContext = () => {
+  const context = useContext(TodoContext);
+  if (!context) {
+    throw new Error("useTodoContext must be used within TodoProvider");
+  }
+  return context;
 };
 
-export { TodoContext as TodoContext, TodoProvider };
+export const TodoProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(todoReducer, initialState);
+  // Action creators avec mise à jour optimiste
+  const actions = {
+    deleteTodo: (todo) =>
+      dispatch({
+        type: TODO_ACTIONS.DELETE,
+        payload: { ...todo },
+      }),
+    updateTodo: (update) => {
+      dispatch({
+        type: TODO_ACTIONS.UPDATE,
+        payload: { ...update, isEditing: false },
+      });
+    },
+    startEdit: (todo) => {
+      dispatch({
+        type: TODO_ACTIONS.START_EDIT,
+        payload: { ...todo, isEditing: true },
+      });
+    },
+    cancelEdit: (todo) => {
+      dispatch({
+        type: TODO_ACTIONS.CANCEL_EDIT,
+        payload: { ...todo, isEditing: false },
+      });
+    },
+    toggleTodo: (todo) => {
+      dispatch({
+        type: TODO_ACTIONS.TOGGLE,
+        payload: { ...todo, completed: !todo.completed },
+      });
+    },
+  };
+
+  // Sélecteurs (computed values)
+  const selectors = {
+    getTodos: () => {
+      switch (state.filter) {
+        case "active":
+          return state.todos.filter((todo) => !todo.completed);
+        case "completed":
+          return state.todos.filter((todo) => todo.completed);
+        default:
+          return state.todos;
+      }
+    },
+  };
+
+  const value = {
+    state,
+    actions,
+    selectors,
+  };
+
+  return <TodoContext.Provider value={value}>{children}</TodoContext.Provider>;
+};
 
 /* import React, { createContext, useContext, useEffect, useReducer } from "react";
 import {

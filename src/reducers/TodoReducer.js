@@ -11,11 +11,12 @@ export const TODO_ACTIONS = {
 
 export const initialState = {
   todos: [
-    { id: 1, text: "Todo 1", isEditing: false, completed: true },
-    { id: 2, text: "Todo 2", isEditing: false, completed: false },
+    { id: 1, text: "Todo 1", isEditing: false, completed: false },
+    { id: 2, text: "Todo 2", isEditing: false, completed: true },
     { id: 3, text: "Todo 3", isEditing: false, completed: false },
+    { id: 4, text: "Todo 3", isEditing: false, completed: false },
   ],
-  filter: "all", // all, active, completed
+  filter: "completed", // all, active, completed
 };
 
 export const todoReducer = (state, action) => {
@@ -33,9 +34,7 @@ export const todoReducer = (state, action) => {
       };
     case TODO_ACTIONS.UPDATE:
       const updatedTodos = state.todos.map((todo) =>
-        todo.id === action.payload.id
-          ? { ...todo, text: action.payload.text }
-          : todo
+        todo.id === action.payload.id ? action.payload : todo
       );
       return {
         ...state,
@@ -45,6 +44,32 @@ export const todoReducer = (state, action) => {
       return {
         ...state,
         todos: state.todos.filter((todo) => todo.id !== action.payload.id),
+      };
+    case TODO_ACTIONS.TOGGLE:
+      const toggledTodos = state.todos.map((todo) =>
+        todo.id === action.payload.id
+          ? { ...todo, completed: !todo.completed }
+          : todo
+      );
+      return {
+        ...state,
+        todos: toggledTodos,
+      };
+    case TODO_ACTIONS.START_EDIT:
+      const startEditTodos = state.todos.map((todo) =>
+        todo.id === action.payload.id ? { ...todo, isEditing: true } : todo
+      );
+      return {
+        ...state,
+        todos: startEditTodos,
+      };
+    case TODO_ACTIONS.CANCEL_EDIT:
+      const cancelEditTodos = state.todos.map((todo) =>
+        todo.id === action.payload.id ? { ...todo, isEditing: false } : todo
+      );
+      return {
+        ...state,
+        todos: cancelEditTodos,
       };
 
     // TODO: Implémentez les autres actions
