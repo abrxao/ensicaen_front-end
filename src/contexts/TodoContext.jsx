@@ -20,6 +20,17 @@ export const TodoProvider = ({ children }) => {
   const [state, dispatch] = useReducer(todoReducer, initialState);
   // Action creators avec mise à jour optimiste
   const actions = {
+    addTodo: (text) => {
+      dispatch({
+        type: TODO_ACTIONS.ADD,
+        payload: {
+          id: Date.now(),
+          text,
+          isEditing: false,
+          completed: false,
+        },
+      });
+    },
     deleteTodo: (todo) =>
       dispatch({
         type: TODO_ACTIONS.DELETE,
