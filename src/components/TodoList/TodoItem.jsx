@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useTodoContext } from "../../contexts/TodoContext";
+import { useTodoContext } from "/src/contexts/TodoContext";
 import "./TodoItem.css";
 export function TodoItem({ id }) {
   const {

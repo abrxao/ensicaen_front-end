@@ -3,7 +3,7 @@ import {
   initialState,
   todoReducer,
   TODO_ACTIONS,
-} from "../reducers/TodoReducer";
+} from "/src/reducers/TodoReducer";
 
 // Step 1: Create a Context
 const TodoContext = createContext(initialState);

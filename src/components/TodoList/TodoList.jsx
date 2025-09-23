@@ -1,5 +1,5 @@
-import { useTodoContext } from "../../contexts/TodoContext";
-import { TodoItem } from "./TodoItem";
+import { useTodoContext } from "/src/contexts/TodoContext";
+import { TodoItem } from "/src/components/TodoList/TodoItem";
 
 export function TodoList() {
   const {
