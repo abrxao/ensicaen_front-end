@@ -40,30 +40,36 @@ export const TodoProvider = ({ children }) => {
     deleteTodo: (todo) =>
       dispatch({
         type: TODO_ACTIONS.DELETE,
-        payload: { ...todo },
+        payload: { id: todo.id },
       }),
     updateTodo: (update) => {
       dispatch({
         type: TODO_ACTIONS.UPDATE,
-        payload: { ...update, isEditing: false },
+        payload: { id: update.id, text: update.text },
       });
     },
     startEdit: (todo) => {
       dispatch({
         type: TODO_ACTIONS.START_EDIT,
-        payload: { ...todo, isEditing: true },
+        payload: { id: todo.id },
       });
     },
     cancelEdit: (todo) => {
       dispatch({
         type: TODO_ACTIONS.CANCEL_EDIT,
-        payload: { ...todo, isEditing: false },
+        payload: { id: todo.id },
       });
     },
     toggleTodo: (todo) => {
       dispatch({
         type: TODO_ACTIONS.TOGGLE,
-        payload: { ...todo, completed: !todo.completed },
+        payload: { id: todo.id },
+      });
+    },
+    setFilterTodo: (filter) => {
+      dispatch({
+        type: TODO_ACTIONS.SET_FILTER,
+        payload: { filter: filter },
       });
     },
   };

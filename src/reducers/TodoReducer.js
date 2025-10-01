@@ -71,6 +71,11 @@ export const todoReducer = (state, action) => {
         ...state,
         todos: cancelEditTodos,
       };
+    case TODO_ACTIONS.SET_FILTER:
+      return {
+        ...state,
+        filter: action.payload.filter,
+      };
 
     // TODO: Implémentez les autres actions
   }
