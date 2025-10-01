@@ -19,7 +19,12 @@ export const useTodoContext = () => {
 
 export const TodoProvider = ({ children }) => {
   const [state, dispatch] = useReducer(todoReducer, initialState);
-  const { todos: todosApi, deleteTodo: _delete } = useTodoAPI();
+  const {
+    todos: todosApi,
+    deleteTodo: deleteFromAPI,
+    updateTodo: updateFromAPI,
+    addTodo: addToAPI,
+  } = useTodoAPI();
 
   useEffect(() => {
     actions.setTodos(todosApi);
@@ -32,7 +37,8 @@ export const TodoProvider = ({ children }) => {
         payload: todos,
       });
     },
-    addTodo: (text) => {
+    addTodo: async (text) => {
+      await addToAPI(text);
       dispatch({
         type: TODO_ACTIONS.ADD,
         payload: {
@@ -44,13 +50,14 @@ export const TodoProvider = ({ children }) => {
       });
     },
     deleteTodo: async (todo) => {
-      await _delete(todo.id);
+      await deleteFromAPI(todo.id);
       dispatch({
         type: TODO_ACTIONS.DELETE,
         payload: { id: todo.id },
       });
     },
-    updateTodo: (update) => {
+    updateTodo: async (update) => {
+      await updateFromAPI(update.id, { text: update.text });
       dispatch({
         type: TODO_ACTIONS.UPDATE,
         payload: { id: update.id, text: update.text },
@@ -68,7 +75,8 @@ export const TodoProvider = ({ children }) => {
         payload: { id: todo.id },
       });
     },
-    toggleTodo: (todo) => {
+    toggleTodo: async (todo) => {
+      await updateFromAPI(todo.id, { completed: !todo.completed });
       dispatch({
         type: TODO_ACTIONS.TOGGLE,
         payload: { id: todo.id },

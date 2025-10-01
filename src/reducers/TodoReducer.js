@@ -16,7 +16,7 @@ export const initialState = {
     { id: 3, text: "Todo 3", isEditing: false, completed: false },
     { id: 4, text: "Todo 3", isEditing: false, completed: false },
   ],
-  filter: "active", // all, active, completed
+  filter: "all", // all, active, completed
 };
 
 export const todoReducer = (state, action) => {

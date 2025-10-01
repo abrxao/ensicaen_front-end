@@ -55,6 +55,7 @@ export const useTodoAPI = () => {
         },
         ...prevTodos,
       ]);
+      toast.success("Tâche ajoutée avec succès !");
     } catch (err) {
       setError("Impossible d'ajouter la tâche.");
     }
@@ -73,6 +74,7 @@ export const useTodoAPI = () => {
           todo.id === id ? { ...todo, ...updates } : todo
         )
       );
+      toast.success("Tâche mise à jour avec succès !");
     } catch (err) {
       setError("Impossible de mettre à jour la tâche.");
     }
@@ -80,7 +82,7 @@ export const useTodoAPI = () => {
 
   const deleteTodo = async (id) => {
     try {
-      const response = await fetch(`${BASE_URL}/todos/${id}`, {
+      await fetch(`${BASE_URL}/todos/${id}`, {
         method: "DELETE",
       });
 

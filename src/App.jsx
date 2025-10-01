@@ -7,7 +7,7 @@ import { Toaster } from "react-hot-toast";
 function App() {
   return (
     <TodoProvider>
-      <Toaster />
+      <Toaster position="bottom-right" reverseOrder={true} />
       <TodoForm />
       <TodoList />
     </TodoProvider>
