@@ -21,7 +21,6 @@ export const useTodoAPI = () => {
       }
 
       const data = await response.json();
-      // Adapter les données de l'API au format local
       const adaptedTodos = data.todos.map((todo) => ({
         id: todo.id,
         text: todo.todo,
@@ -36,10 +35,64 @@ export const useTodoAPI = () => {
       setLoading(false);
     }
   };
+  const addTodo = async (todoText) => {
+    try {
+      const response = await fetch(`${BASE_URL}/todos/add`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          todo: todoText,
+          completed: false,
+          userId: USER_ID,
+        }),
+      });
+      const newTodo = await response.json();
+      setTodos((prevTodos) => [
+        {
+          id: newTodo.id,
+          text: newTodo.todo,
+          completed: newTodo.completed,
+        },
+        ...prevTodos,
+      ]);
+    } catch (err) {
+      setError("Impossible d'ajouter la tâche.");
+    }
+  };
 
+  const updateTodo = async (id, updates) => {
+    try {
+      const response = await fetch(`${BASE_URL}/todos/${id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(updates),
+      });
+      const updatedTodo = await response.json();
+      setTodos((prevTodos) =>
+        prevTodos.map((todo) =>
+          todo.id === id ? { ...todo, ...updates } : todo
+        )
+      );
+    } catch (err) {
+      setError("Impossible de mettre à jour la tâche.");
+    }
+  };
+
+  const deleteTodo = async (id) => {
+    try {
+      const response = await fetch(`${BASE_URL}/todos/${id}`, {
+        method: "DELETE",
+      });
+
+      console.log(await response.json());
+      setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
+    } catch (err) {
+      setError("Impossible de supprimer la tâche.");
+    }
+  };
   useEffect(() => {
     fetchTodos(10);
   }, []);
-  return { todos, loading, error, fetchTodos };
+  return { todos, loading, error, fetchTodos, addTodo, updateTodo, deleteTodo };
   // TODO : Ajoutez les autres fonctions d'appels à l'API (voir la doc de l’API)
 };

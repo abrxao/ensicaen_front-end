@@ -1,37 +1,34 @@
 import { useState } from "react";
 import { useTodoContext } from "/src/contexts/TodoContext";
 import "./TodoItem.css";
-export function TodoItem({ id }) {
-  const {
-    state: { todos },
-    actions,
-  } = useTodoContext();
-  const [text, setText] = useState(todos[id].text);
+export function TodoItem({ todo }) {
+  const { actions } = useTodoContext();
+  const [text, setText] = useState(todo.text);
 
   return (
     <div className="todo-item">
       <input
         type="checkbox"
-        checked={todos[id].completed}
-        onChange={() => actions.toggleTodo({ ...todos[id] })}
+        checked={todo.completed}
+        onChange={() => actions.toggleTodo({ ...todo })}
       />
-      {todos[id].isEditing ? (
+      {todo.isEditing ? (
         <input
-          defaultValue={todos[id].text}
+          defaultValue={todo.text}
           onChange={(event) => {
             event.preventDefault();
             setText(event.target.value);
           }}
         />
       ) : (
-        <span>{todos[id].text}</span>
+        <span>{todo.text}</span>
       )}
 
-      {todos[id].isEditing ? (
+      {todo.isEditing ? (
         <button
           onClick={() =>
             actions.updateTodo({
-              ...todos[id],
+              ...todo,
               text: text,
               isEditing: false,
             })
@@ -40,13 +37,11 @@ export function TodoItem({ id }) {
           Confirm
         </button>
       ) : (
-        <button onDoubleClick={() => actions.startEdit({ ...todos[id] })}>
+        <button onDoubleClick={() => actions.startEdit({ ...todo })}>
           Edit
         </button>
       )}
-      <button onClick={() => actions.deleteTodo({ ...todos[id] })}>
-        Delete
-      </button>
+      <button onClick={() => actions.deleteTodo({ ...todo })}>Delete</button>
     </div>
   );
 }

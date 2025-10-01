@@ -19,7 +19,7 @@ export const useTodoContext = () => {
 
 export const TodoProvider = ({ children }) => {
   const [state, dispatch] = useReducer(todoReducer, initialState);
-  const { todos: todosApi } = useTodoAPI();
+  const { todos: todosApi, deleteTodo: _delete } = useTodoAPI();
 
   useEffect(() => {
     actions.setTodos(todosApi);
@@ -43,11 +43,13 @@ export const TodoProvider = ({ children }) => {
         },
       });
     },
-    deleteTodo: (todo) =>
+    deleteTodo: async (todo) => {
+      await _delete(todo.id);
       dispatch({
         type: TODO_ACTIONS.DELETE,
         payload: { id: todo.id },
-      }),
+      });
+    },
     updateTodo: (update) => {
       dispatch({
         type: TODO_ACTIONS.UPDATE,
