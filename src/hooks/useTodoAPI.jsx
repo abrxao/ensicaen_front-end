@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-
+import { toast } from "react-hot-toast";
 const BASE_URL = "https://dummyjson.com";
 export const USER_ID = 1;
 
@@ -84,8 +84,8 @@ export const useTodoAPI = () => {
         method: "DELETE",
       });
 
-      console.log(await response.json());
       setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
+      toast.success("Tâche supprimée avec succès !");
     } catch (err) {
       setError("Impossible de supprimer la tâche.");
     }
