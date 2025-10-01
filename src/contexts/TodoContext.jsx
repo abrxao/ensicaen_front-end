@@ -1,9 +1,10 @@
-import { createContext, useReducer, useContext } from "react";
+import { createContext, useReducer, useContext, useEffect } from "react";
 import {
   initialState,
   todoReducer,
   TODO_ACTIONS,
 } from "/src/reducers/TodoReducer";
+import { useTodoAPI } from "/src/hooks/useTodoAPI";
 
 // Step 1: Create a Context
 const TodoContext = createContext(initialState);
@@ -18,7 +19,12 @@ export const useTodoContext = () => {
 
 export const TodoProvider = ({ children }) => {
   const [state, dispatch] = useReducer(todoReducer, initialState);
-  // Action creators avec mise à jour optimiste
+  const { todos: todosApi } = useTodoAPI();
+
+  useEffect(() => {
+    actions.setTodos(todosApi);
+  }, [todosApi]);
+
   const actions = {
     setTodos: (todos) => {
       dispatch({
