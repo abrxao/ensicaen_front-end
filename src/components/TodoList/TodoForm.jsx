@@ -17,7 +17,7 @@ export function TodoForm() {
   }
 
   return (
-    <form onSubmit={(event) => handleSubmit(event)}>
+    <form onSubmit={(event) => handleSubmit(event)} className="todo-form">
       <input
         defaultValue={text}
         type="text"

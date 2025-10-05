@@ -8,8 +8,10 @@ function App() {
   return (
     <TodoProvider>
       <Toaster position="bottom-right" reverseOrder={true} />
-      <TodoForm />
-      <TodoList />
+      <section className="todo-content">
+        <TodoForm />
+        <TodoList />
+      </section>
     </TodoProvider>
   );
 }
