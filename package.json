@@ -7,9 +7,14 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "extract": "lingui extract",
+    "compile": "lingui compile"
   },
   "dependencies": {
+    "@lingui/cli": "^5.5.0",
+    "@lingui/core": "^5.5.0",
+    "@lingui/react": "^5.5.0",
     "lucide-react": "^0.544.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
@@ -17,6 +22,9 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.33.0",
+    "@lingui/babel-plugin-lingui-macro": "^5.5.0",
+    "@lingui/vite-plugin": "^5.5.0",
+    "@originjs/vite-plugin-commonjs": "^1.0.3",
     "@types/react": "^19.1.10",
     "@types/react-dom": "^19.1.7",
     "@vitejs/plugin-react": "^5.0.0",
