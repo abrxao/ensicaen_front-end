@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useTodoContext } from "/src/contexts/TodoContext";
 import "./TodoItem.css";
+import { Pencil, Trash } from "lucide-react";
 export function TodoItem({ todo }) {
   const { actions } = useTodoContext();
   const [text, setText] = useState(todo.text);
@@ -11,6 +12,7 @@ export function TodoItem({ todo }) {
         type="checkbox"
         checked={todo.completed}
         onChange={() => actions.toggleTodo({ ...todo })}
+        className="todo-checkbox"
       />
       {todo.isEditing ? (
         <input
@@ -19,9 +21,11 @@ export function TodoItem({ todo }) {
             event.preventDefault();
             setText(event.target.value);
           }}
+          className="todo-edit-input"
+          type="text"
         />
       ) : (
-        <span>{todo.text}</span>
+        <span className="todo-text">{todo.text}</span>
       )}
 
       {todo.isEditing ? (
@@ -37,11 +41,16 @@ export function TodoItem({ todo }) {
           Confirm
         </button>
       ) : (
-        <button onDoubleClick={() => actions.startEdit({ ...todo })}>
-          Edit
+        <button
+          onDoubleClick={() => actions.startEdit({ ...todo })}
+          className="icon"
+        >
+          <Pencil size={16} />
         </button>
       )}
-      <button onClick={() => actions.deleteTodo({ ...todo })}>Delete</button>
+      <button onClick={() => actions.deleteTodo({ ...todo })} className="icon">
+        <Trash size={16} />
+      </button>
     </div>
   );
 }

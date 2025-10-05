@@ -1,6 +1,22 @@
 .todo-item {
   display: flex;
-  justify-items: center;
+  justify-content: space-between;
   align-items: center;
   gap: 8px;
+  background-color: var(--color-bg-accent);
+  padding: 0.6em 1.2em;
+  border-radius: 0.5em;
+  border: var(--color-border) 1px solid;
+  box-shadow: var(--shadow);
+  transition: background-color 0.3s ease, box-shadow 0.3s;
+}
+
+.todo-item span {
+  flex-grow: 1;
+  text-align: left;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  color: var(--color-text);
 }
