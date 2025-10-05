@@ -10,7 +10,7 @@ export function TodoForm() {
     event.preventDefault();
     if (text.trim().length) {
       actions.addTodo(text.trim());
-      setText((text) => {
+      setText((_) => {
         return "";
       });
     }
