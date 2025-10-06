@@ -6,14 +6,17 @@ import { I18nProvider } from "@lingui/react";
 import mFR from "./locales/fr/messages";
 import mEN from "./locales/en/messages";
 import "./index.css";
+import { ThemeProvider } from "./contexts/ThemeContext.jsx";
 
 i18n.load({ fr: mFR.messages, en: mEN.messages });
 i18n.activate("fr");
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <I18nProvider i18n={i18n}>
-      <App />
-    </I18nProvider>
+    <ThemeProvider>
+      <I18nProvider i18n={i18n}>
+        <App />
+      </I18nProvider>
+    </ThemeProvider>
   </StrictMode>
 );

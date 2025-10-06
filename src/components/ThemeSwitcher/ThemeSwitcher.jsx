@@ -1,6 +1,6 @@
 import { useTheme } from "/src/contexts/ThemeContext";
 import { Trans } from "@lingui/react/macro";
-import { ChevronsDown } from "lucide-react";
+import { ChevronsDown, Computer, Moon, Sun } from "lucide-react";
 import "./ThemeSwitcher.css";
 
 export function ThemeSwitcher() {
@@ -19,13 +19,13 @@ export function ThemeSwitcher() {
       </label>
       <select id="theme-select" value={theme} onChange={handleThemeChange}>
         <option value="system">
-          💻 <Trans>Sistéme</Trans>
+          <Computer /> <Trans>Sistéme</Trans>
         </option>
         <option value="light">
-          ☀️ <Trans>Clair</Trans>
+          <Sun /> <Trans>Clair</Trans>
         </option>
         <option value="dark">
-          🌙 <Trans>Noir</Trans>
+          <Moon /> <Trans>Noir</Trans>
         </option>
       </select>
       <ChevronsDown className="switcher-icon" size={20} />
