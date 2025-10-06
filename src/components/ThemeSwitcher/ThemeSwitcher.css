@@ -1,9 +1,14 @@
 /* DropDownLangue.css */
-div.dropdown-langue {
+div.dropdown-switcher {
   position: relative;
   display: flex;
 }
-.langue-icon {
+label.switcher-label {
+  margin-bottom: 4px;
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+.switcher-icon {
   position: relative;
   z-index: 1;
   top: 8px;
@@ -11,6 +16,7 @@ div.dropdown-langue {
   pointer-events: none;
   color: var(--color-text);
 }
+
 select {
   padding: 8px 32px 8px 12px;
   border: 1.5px solid var(--color-border);
