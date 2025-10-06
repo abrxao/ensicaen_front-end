@@ -13,6 +13,22 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/App.jsx:14
+#: src/components/ThemeSwitcher/ThemeSwitcher.jsx:25
+msgid "Clair"
+msgstr "Light"
+
+#: src/components/ThemeSwitcher/ThemeSwitcher.jsx:28
+msgid "Noir"
+msgstr "Dark"
+
+#: src/App.jsx:16
 msgid "Pour faire"
 msgstr "To-Do"
+
+#: src/components/ThemeSwitcher/ThemeSwitcher.jsx:22
+msgid "Sistéme"
+msgstr "System"
+
+#: src/components/ThemeSwitcher/ThemeSwitcher.jsx:18
+msgid "Theme:"
+msgstr "Theme:"

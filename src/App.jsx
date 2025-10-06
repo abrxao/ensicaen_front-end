@@ -5,6 +5,7 @@ import { TodoForm } from "/src/components/TodoList/TodoForm";
 import { Toaster } from "react-hot-toast";
 import { Trans } from "@lingui/react/macro";
 import DropDownLangue from "./components/DropDownLangue/DropDownLangue";
+import { ThemeSwitcher } from "./components/ThemeSwitcher/ThemeSwitcher";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Toaster position="bottom-right" reverseOrder={true} />
       <section className="todo-content">
         <DropDownLangue />
+        <ThemeSwitcher />
         <h2>
           <Trans>Pour faire</Trans>
         </h2>

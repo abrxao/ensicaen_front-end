@@ -1,1 +1,1 @@
-/*eslint-disable*/module.exports={messages:JSON.parse("{\"8eqshl\":[\"Pour faire\"]}")};
+/*eslint-disable*/module.exports={messages:JSON.parse("{\"8eqshl\":[\"Pour faire\"],\"8rQfIj\":[\"Theme:\"],\"DGoNwS\":[\"Clair\"],\"s9r1y2\":[\"Noir\"],\"uJa1LI\":[\"Sistéme\"]}")};

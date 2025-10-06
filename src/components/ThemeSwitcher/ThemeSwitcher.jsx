@@ -19,7 +19,7 @@ export function ThemeSwitcher() {
       </label>
       <select id="theme-select" value={theme} onChange={handleThemeChange}>
         <option value="system">
-          <Computer /> <Trans>Sistéme</Trans>
+          <Computer size={12} /> <Trans>Sistéme</Trans>
         </option>
         <option value="light">
           <Sun /> <Trans>Clair</Trans>
