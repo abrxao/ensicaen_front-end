@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useTodoContext } from "/src/contexts/TodoContext";
 import "./TodoItem.css";
 import { Pencil, Save, Trash } from "lucide-react";
+import ButtonIcon from "/src/components/ui/ButtonIcon";
 
 export function TodoItem({ todo }) {
   const { actions } = useTodoContext();
@@ -74,17 +75,17 @@ export function TodoItem({ todo }) {
 
       {todo.isEditing ? (
         // This button doesn't need an onClick because the save is handled by onBlur and Enter key
-        <button className="icon">
+        <ButtonIcon>
           <Save size={16} />
-        </button>
+        </ButtonIcon>
       ) : (
-        <button onClick={() => actions.startEdit({ ...todo })} className="icon">
+        <ButtonIcon onClick={() => actions.startEdit({ ...todo })}>
           <Pencil size={16} />
-        </button>
+        </ButtonIcon>
       )}
-      <button onClick={() => actions.deleteTodo({ ...todo })} className="icon">
+      <ButtonIcon onClick={() => actions.deleteTodo({ ...todo })}>
         <Trash size={16} />
-      </button>
+      </ButtonIcon>
     </div>
   );
 }

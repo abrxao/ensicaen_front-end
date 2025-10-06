@@ -59,12 +59,6 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-button.icon {
-  padding: 0.4em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 input[type="checkbox"] {
   min-width: 20px;
   height: 20px;
