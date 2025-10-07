@@ -1,8 +1,7 @@
 import React from "react";
 import { useLingui } from "@lingui/react";
 import { i18n } from "@lingui/core";
-import "./DropDownLangue.css";
-import { ChevronsDown } from "lucide-react";
+import DropDown, { Option } from "/src/components/ui/DropDown";
 
 const languages = [
   { code: "en", label: "English" },
@@ -19,16 +18,13 @@ const DropDownLangue = () => {
   };
 
   return (
-    <div className="dropdown-langue">
-      <select value={linguiI18n.locale} onChange={handleChange}>
-        {languages.map((lang) => (
-          <option key={lang.code} value={lang.code}>
-            {lang.label}
-          </option>
-        ))}
-      </select>
-      <ChevronsDown className="langue-icon" size={20} />
-    </div>
+    <DropDown value={linguiI18n.locale} onChange={handleChange}>
+      {languages.map((lang) => (
+        <Option key={lang.code} value={lang.code}>
+          {lang.label}
+        </Option>
+      ))}
+    </DropDown>
   );
 };
 

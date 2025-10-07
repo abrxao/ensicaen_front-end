@@ -3,6 +3,7 @@ import { useTodoContext } from "/src/contexts/TodoContext";
 import "./TodoItem.css";
 import { Pencil, Save, Trash } from "lucide-react";
 import ButtonIcon from "/src/components/ui/ButtonIcon";
+import InputText from "/src/components/ui/InputText";
 
 export function TodoItem({ todo }) {
   const { actions } = useTodoContext();
@@ -55,7 +56,7 @@ export function TodoItem({ todo }) {
         className="todo-checkbox"
       />
       {todo.isEditing ? (
-        <input
+        <InputText
           autoFocus
           onBlur={handleSave}
           defaultValue={todo.text}

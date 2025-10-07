@@ -1,3 +1,52 @@
-@import "Reset.css";
-@import "Variables.css";
-@import "index.css";
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color-scheme: light dark;
+  background-color: var(--color-bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+h2 {
+  margin: 0 0 0.5em 0;
+  font-size: 1.5em;
+  font-weight: 600;
+  color: var(--color-text);
+}
+a {
+  font-weight: 500;
+  color: var(--color-accent);
+  text-decoration: inherit;
+}
+a:hover {
+  color: var(--color-accent);
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  background-color: var(--color-bg);
+  min-width: 320px;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+section.todo-content {
+  margin: 2em auto;
+  max-width: 600px;
+}
+
+input[type="checkbox"] {
+  min-width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+form.todo-form {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 1.5em;
+}
