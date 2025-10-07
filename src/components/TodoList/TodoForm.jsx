@@ -6,20 +6,18 @@ export function TodoForm() {
 
   const [text, setText] = useState("");
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
     if (text.trim().length) {
-      actions.addTodo(text.trim());
-      setText((_) => {
-        return "";
-      });
+      await actions.addTodo(text.trim());
+      setText("");
     }
   }
 
   return (
     <form onSubmit={(event) => handleSubmit(event)} className="todo-form">
       <input
-        defaultValue={text}
+        value={text}
         type="text"
         onChange={(e) => setText(e.target.value)}
       />
