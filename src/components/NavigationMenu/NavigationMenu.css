@@ -1,0 +1,22 @@
+nav.navigation-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  background-color: var(--color-bg-accent);
+  border-bottom: 1.5px solid var(--color-border);
+  margin: 10px 0 20px 0;
+}
+
+nav.navigation-menu a {
+  margin: 0 12px;
+  font-weight: 500;
+  color: var(--color-accent);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-bottom 0.2s;
+}
+
+nav.navigation-menu a:hover {
+  border-bottom: 2px solid var(--color-accent);
+}

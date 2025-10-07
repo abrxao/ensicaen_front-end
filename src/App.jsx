@@ -6,6 +6,9 @@ import { Toaster } from "react-hot-toast";
 import { Trans } from "@lingui/react/macro";
 import DropDownLangue from "./components/DropDownLangue/DropDownLangue";
 import { ThemeSwitcher } from "./components/ThemeSwitcher/ThemeSwitcher";
+import { Routes, Route, Navigate } from "react-router";
+import { PATHS } from "/src/paths";
+import NavigationMenu from "/src/components/NavigationMenu";
 
 function App() {
   return (
@@ -17,8 +20,29 @@ function App() {
         <h2>
           <Trans>Pour faire</Trans>
         </h2>
-        <TodoForm />
-        <TodoList />
+        <NavigationMenu />
+        <Routes>
+          <Route
+            path={PATHS.TODOS.href}
+            element={
+              <>
+                <TodoForm />
+                <TodoList />
+              </>
+            }
+          />
+          <Route
+            path="/"
+            element={<Navigate to={PATHS.TODOS.href} replace />}
+          />
+        </Routes>
+        <Routes>
+          <Route path={PATHS.HOME.href} element={<></>} />
+          <Route
+            path="/"
+            element={<Navigate to={PATHS.TODOS.href} replace />}
+          />
+        </Routes>
       </section>
     </TodoProvider>
   );
