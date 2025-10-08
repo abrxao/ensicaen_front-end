@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { useTodoContext } from "/src/contexts/TodoContext";
-import "./TodoItem.css";
-import { Pencil, Save, Trash } from "lucide-react";
 import ButtonIcon from "/src/components/ui/ButtonIcon";
 import InputText from "/src/components/ui/InputText";
+import { Pencil, Save, Trash } from "lucide-react";
 
 export function TodoItem({ todo }) {
   const { actions } = useTodoContext();

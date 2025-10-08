@@ -1,13 +1,18 @@
 import { useTodoContext } from "/src/contexts/TodoContext";
-import { TodoItem } from "/src/components/TodoList/TodoItem";
+import { TodoItem } from "/src/components/TodoGroup/TodoItem";
 import { useTodoAPI } from "/src/hooks/useTodoAPI";
-import "./TodoList.css";
+import TodoListSkeleton from "./skeleton";
+
 export function TodoList() {
-  const { state, selectors } = useTodoContext();
+  const { selectors } = useTodoContext();
   const { loading, error } = useTodoAPI();
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="todo-list">
+        <TodoListSkeleton />
+      </div>
+    );
   }
   if (error) {
     return <div>Error...</div>;
