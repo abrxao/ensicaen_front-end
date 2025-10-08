@@ -12,13 +12,20 @@ nav.navigation-menu a.nav-link {
   gap: 0.25em;
   margin: 0 12px;
   font-weight: 500;
-  color: var(--color-accent);
+  color: var(--color-text);
   text-decoration: none;
   font-size: 1.25em;
   border-bottom: 2px solid transparent;
   transition: border-bottom 0.2s;
+  padding-bottom: 3px;
+}
+nav.navigation-menu a:hover.nav-link {
+  border-bottom: 2px solid var(--color-text);
+}
+nav.navigation-menu a[data-active="true"].nav-link {
+  color: var(--color-accent);
 }
 
-nav.navigation-menu a:hover {
+nav.navigation-menu a[data-active="true"]:hover.nav-link {
   border-bottom: 2px solid var(--color-accent);
 }
