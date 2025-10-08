@@ -47,9 +47,10 @@ export const useTodoAPI = () => {
         }),
       });
       const newTodo = await response.json();
+      // Setting states in todos api
       setTodos((prevTodos) => [
         {
-          id: newTodo.id,
+          id: Date.now(),
           text: newTodo.todo,
           completed: newTodo.completed,
         },

@@ -10,12 +10,7 @@ export const TODO_ACTIONS = {
 };
 
 export const initialState = {
-  todos: [
-    { id: 1, text: "Todo 1", isEditing: false, completed: false },
-    { id: 2, text: "Todo 2", isEditing: false, completed: true },
-    { id: 3, text: "Todo 3", isEditing: false, completed: false },
-    { id: 4, text: "Todo 3", isEditing: false, completed: false },
-  ],
+  todos: [],
   filter: "all", // all, active, completed
 };
 

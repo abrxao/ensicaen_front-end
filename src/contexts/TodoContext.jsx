@@ -39,15 +39,6 @@ export const TodoProvider = ({ children }) => {
     },
     addTodo: async (text) => {
       await addToAPI(text);
-      dispatch({
-        type: TODO_ACTIONS.ADD,
-        payload: {
-          id: Date.now(),
-          text,
-          isEditing: false,
-          completed: false,
-        },
-      });
     },
     deleteTodo: async (todo) => {
       await deleteFromAPI(todo.id);
