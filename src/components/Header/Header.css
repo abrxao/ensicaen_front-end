@@ -1,0 +1,12 @@
+.main-header {
+  display: flex;
+  padding: 2em 1em;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.groups-header {
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
+}

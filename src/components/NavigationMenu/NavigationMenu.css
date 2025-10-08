@@ -3,16 +3,18 @@ nav.navigation-menu {
   justify-content: center;
   align-items: center;
   padding: 16px;
-  background-color: var(--color-bg-accent);
-  border-bottom: 1.5px solid var(--color-border);
   margin: 10px 0 20px 0;
 }
 
-nav.navigation-menu a {
+nav.navigation-menu a.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.25em;
   margin: 0 12px;
   font-weight: 500;
   color: var(--color-accent);
   text-decoration: none;
+  font-size: 1.25em;
   border-bottom: 2px solid transparent;
   transition: border-bottom 0.2s;
 }

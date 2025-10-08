@@ -1,26 +1,19 @@
 import "./App.css";
-import { TodoList } from "/src/components/TodoList/TodoList";
+import { TodoList } from "/src/components/TodoGroup/TodoList";
 import { TodoProvider } from "/src/contexts/TodoContext";
-import { TodoForm } from "/src/components/TodoList/TodoForm";
+import { TodoForm } from "/src/components/TodoGroup/TodoForm";
 import { Toaster } from "react-hot-toast";
-import { Trans } from "@lingui/react/macro";
-import DropDownLangue from "./components/DropDownLangue/DropDownLangue";
-import { ThemeSwitcher } from "./components/ThemeSwitcher/ThemeSwitcher";
 import { Routes, Route, Navigate } from "react-router";
 import { PATHS } from "/src/paths";
-import NavigationMenu from "/src/components/NavigationMenu";
+import Header from "./components/Header";
 
 function App() {
   return (
     <TodoProvider>
       <Toaster position="bottom-right" reverseOrder={true} />
+      <Header />
+
       <section className="todo-content">
-        <DropDownLangue />
-        <ThemeSwitcher />
-        <h2>
-          <Trans>Pour faire</Trans>
-        </h2>
-        <NavigationMenu />
         <Routes>
           <Route
             path={PATHS.TODOS.href}

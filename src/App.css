@@ -13,14 +13,6 @@ h2 {
   font-weight: 600;
   color: var(--color-text);
 }
-a {
-  font-weight: 500;
-  color: var(--color-accent);
-  text-decoration: inherit;
-}
-a:hover {
-  color: var(--color-accent);
-}
 
 body {
   margin: 0;

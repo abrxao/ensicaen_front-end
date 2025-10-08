@@ -1,8 +1,12 @@
 @import "Reset.css";
 @import "Variables.css";
-@import "index.css";
+@import "App.css";
 @import "/src/components/ui/Button/Button.css";
 @import "/src/components/ui/ButtonIcon/ButtonIcon.css";
 @import "/src/components/ui/InputText/InputText.css";
 @import "/src/components/ui/DropDown/DropDown.css";
+@import "/src/components/ui/Skeleton/Skeleton.css";
 @import "/src/components/NavigationMenu/NavigationMenu.css";
+@import "/src/components/TodoGroup/TodoList/TodoList.css";
+@import "/src/components/TodoGroup/TodoItem/TodoItem.css";
+@import "/src/components/Header/Header.css";
