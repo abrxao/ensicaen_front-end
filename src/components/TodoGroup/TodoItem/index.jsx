@@ -34,7 +34,6 @@ export function TodoItem({ todo }) {
 
   function handleSave(event) {
     event.preventDefault();
-    console.log("handleSave called");
     if (text.trim() === "") return;
     if (text === todo.text) {
       actions.cancelEdit({ ...todo });
