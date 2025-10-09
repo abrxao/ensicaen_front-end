@@ -1,0 +1,11 @@
+.todo-filter {
+  display: flex;
+  justify-content: center;
+  padding: 1em;
+  gap: 2em;
+  width: 100%;
+}
+
+.todo-filter svg.svg-todo-filter-btn {
+  padding-right: 0.25em;
+}

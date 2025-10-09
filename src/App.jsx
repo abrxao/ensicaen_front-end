@@ -6,6 +6,7 @@ import { Toaster } from "react-hot-toast";
 import { Routes, Route, Navigate } from "react-router";
 import { PATHS } from "/src/paths";
 import Header from "./components/Header";
+import TodoFilter from "./components/TodoGroup/TodoFilter";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             path={PATHS.TODOS.href}
             element={
               <>
+                <TodoFilter />
                 <TodoForm />
                 <TodoList />
               </>
