@@ -47,7 +47,7 @@ export function TodoItem({ todo }) {
     });
   }
   return (
-    <div className="todo-item">
+    <div className="todo-item" data-completed={todo.completed}>
       <input
         type="checkbox"
         checked={todo.completed}

@@ -8,15 +8,25 @@
   border-radius: 0.5em;
   border: var(--color-border) 1px solid;
   box-shadow: var(--shadow);
-  transition: background-color 0.3s ease, box-shadow 0.3s;
+  transition: background-color 0.3s;
 }
-
-.todo-item span {
-  flex-grow: 1;
+.todo-item:hover {
+  background-color: var(--color-bg-accent_2);
+}
+.todo-item span.todo-text {
   text-align: left;
   padding: 0.6em 1.2em;
   font-size: 1em;
   border: 1px solid transparent;
   font-family: inherit;
   color: var(--color-text);
+  flex-grow: 1;
+  transition: text-decoration 3s ease;
+}
+.todo-item[data-completed="true"] {
+  background-color: var(--color-bg-deactivate);
+}
+.todo-item[data-completed="true"] span.todo-text {
+  opacity: 0.5;
+  text-decoration: line-through;
 }
