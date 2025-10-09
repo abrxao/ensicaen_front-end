@@ -13,7 +13,7 @@ export default function NavigationMenu({ children, ...props }) {
         data-active={PATHS.HOME.href == location.pathname}
         className="nav-link"
       >
-        <HomeIcon />
+        <HomeIcon size={18} />
         Home
       </NavLink>
       <NavLink
@@ -21,7 +21,7 @@ export default function NavigationMenu({ children, ...props }) {
         data-active={PATHS.TODOS.href == location.pathname}
         className="nav-link"
       >
-        <CheckCircle />
+        <CheckCircle size={18} />
         To-Do List
       </NavLink>
     </nav>

@@ -2,9 +2,9 @@
   max-width: 1280px;
   margin: 0 auto;
   display: flex;
-  padding: 0.4em 1em;
+  padding: 1.5em 3em;
   justify-content: space-around;
-  align-items: center;
+  align-items: end;
 }
 
 .groups-header {

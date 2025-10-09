@@ -29,7 +29,7 @@ h1 {
 
 section.todo-content {
   margin: 2em auto;
-  max-width: 600px;
+  max-width: 768px;
 }
 
 input[type="checkbox"] {
