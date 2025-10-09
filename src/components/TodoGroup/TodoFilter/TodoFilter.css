@@ -9,3 +9,7 @@
 .todo-filter svg.svg-todo-filter-btn {
   padding-right: 0.25em;
 }
+
+.todo-filter button[data-selected="true"] {
+  background-color: var(--color-bg-accent_2);
+}

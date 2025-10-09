@@ -4,18 +4,27 @@ import ButtonIcon from "src/components/ui/ButtonIcon";
 import { useTodoContext } from "src/contexts/TodoContext";
 
 export default function TodoFilter() {
-  const { actions } = useTodoContext();
+  const { actions, state } = useTodoContext();
   return (
     <div className="todo-filter">
-      <ButtonIcon onClick={() => actions.setFilterTodo("all")}>
-        <ListCheck size={16} className="svg-todo-filter-btn" />{" "}
+      <ButtonIcon
+        onClick={() => actions.setFilterTodo("all")}
+        data-selected={state.filter == "all"}
+      >
+        <ListCheck size={16} className="svg-todo-filter-btn" />
         <Trans>Tous</Trans>
       </ButtonIcon>
-      <ButtonIcon onClick={() => actions.setFilterTodo("active")}>
+      <ButtonIcon
+        onClick={() => actions.setFilterTodo("active")}
+        data-selected={state.filter == "active"}
+      >
         <Circle size={16} className="svg-todo-filter-btn" />
         <Trans>Actif</Trans>
       </ButtonIcon>
-      <ButtonIcon onClick={() => actions.setFilterTodo("completed")}>
+      <ButtonIcon
+        onClick={() => actions.setFilterTodo("completed")}
+        data-selected={state.filter == "completed"}
+      >
         <CheckCircle size={16} className="svg-todo-filter-btn" />
         <Trans>Complet</Trans>
       </ButtonIcon>
