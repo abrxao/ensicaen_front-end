@@ -26,17 +26,7 @@ function App() {
               </>
             }
           />
-          <Route
-            path="/"
-            element={<Navigate to={PATHS.TODOS.href} replace />}
-          />
-        </Routes>
-        <Routes>
           <Route path={PATHS.HOME.href} element={<></>} />
-          <Route
-            path="/"
-            element={<Navigate to={PATHS.TODOS.href} replace />}
-          />
         </Routes>
       </section>
     </TodoProvider>
