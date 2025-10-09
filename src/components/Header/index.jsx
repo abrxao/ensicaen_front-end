@@ -8,8 +8,7 @@ export default function Header() {
   return (
     <header className="main-header">
       <div className="groups-header">
-        <PackageCheck size={40} />
-
+        <PackageCheck size={32} />
         <h1>
           <Trans>Pour faire</Trans>
         </h1>

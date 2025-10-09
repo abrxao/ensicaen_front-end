@@ -1,6 +1,8 @@
 .main-header {
+  max-width: 1280px;
+  margin: 0 auto;
   display: flex;
-  padding: 2em 1em;
+  padding: 0.4em 1em;
   justify-content: space-around;
   align-items: center;
 }
@@ -8,6 +10,6 @@
 .groups-header {
   color: var(--color-text);
   display: flex;
-  gap: 0.5em;
   align-items: center;
+  gap: 0.4em;
 }
