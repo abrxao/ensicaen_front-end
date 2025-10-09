@@ -56,7 +56,9 @@ export const useTodoAPI = () => {
         },
         ...prevTodos,
       ]);
-      toast.success("Tâche ajoutée avec succès !");
+      toast.success("Tâche ajoutée avec succès !", {
+        duration: 3500 /* 3.5s of popup duration */,
+      });
     } catch (err) {
       setError("Impossible d'ajouter la tâche.");
     }
@@ -75,7 +77,9 @@ export const useTodoAPI = () => {
           todo.id === id ? { ...todo, ...updates } : todo
         )
       );
-      toast.success("Tâche mise à jour avec succès !");
+      toast.success("Tâche mise à jour avec succès !", {
+        duration: 3500 /* 3.5s of popup duration */,
+      });
     } catch (err) {
       setError("Impossible de mettre à jour la tâche.");
     }
@@ -88,7 +92,9 @@ export const useTodoAPI = () => {
       });
 
       setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
-      toast.success("Tâche supprimée avec succès !");
+      toast.success("Tâche supprimée avec succès !", {
+        duration: 3500 /* 3.5s of popup duration */,
+      });
     } catch (err) {
       setError("Impossible de supprimer la tâche.");
     }
