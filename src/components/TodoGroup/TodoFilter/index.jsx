@@ -12,21 +12,33 @@ export default function TodoFilter() {
         data-selected={state.filter == "all"}
       >
         <ListCheck size={16} className="svg-todo-filter-btn" />
-        <Trans>Tous</Trans>
+        <Trans>Tous</Trans> ({state.todos.length})
       </ButtonIcon>
       <ButtonIcon
         onClick={() => actions.setFilterTodo("active")}
         data-selected={state.filter == "active"}
       >
         <Circle size={16} className="svg-todo-filter-btn" />
-        <Trans>Actif</Trans>
+        <Trans>Actif</Trans> (
+        {state.todos.reduce(
+          (sum, todo) => (!todo.completed ? sum + 1 : sum),
+          0
+        )}
+        )
       </ButtonIcon>
       <ButtonIcon
         onClick={() => actions.setFilterTodo("completed")}
         data-selected={state.filter == "completed"}
       >
         <CheckCircle size={16} className="svg-todo-filter-btn" />
-        <Trans>Complet</Trans>
+        <Trans>
+          Complet(
+          {state.todos.reduce(
+            (sum, todo) => (todo.completed ? sum + 1 : sum),
+            0
+          )}
+          )
+        </Trans>
       </ButtonIcon>
     </div>
   );
