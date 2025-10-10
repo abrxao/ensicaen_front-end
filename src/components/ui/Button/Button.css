@@ -10,6 +10,10 @@ button.btn {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+button:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
 button:hover.btn {
   border-color: var(--color-accent);
 }

@@ -7,8 +7,9 @@ import { Pencil, Save, Trash } from "lucide-react";
 export function TodoItem({ todo }) {
   const { actions } = useTodoContext();
   const [text, setText] = useState(todo.text);
+  const [isLoading, setIsLoading] = useState(false);
 
-  function handleKeyDown(event) {
+  async function handleKeyDown(event) {
     if (event.key === "Escape") {
       setText(todo.text);
       actions.cancelEdit({ ...todo });
@@ -19,20 +20,26 @@ export function TodoItem({ todo }) {
       return;
     }
     if (event.key === "Enter" && text.trim() !== "") {
-      actions.updateTodo({
+      setIsLoading(true);
+      await actions.updateTodo({
         ...todo,
         text: text,
         isEditing: false,
       });
+      setIsLoading(false);
     }
   }
-
+  async function handleDelete() {
+    setIsLoading(true);
+    await actions.deleteTodo({ ...todo });
+    setIsLoading(false);
+  }
   function handleChange(event) {
     event.preventDefault();
     setText(event.target.value);
   }
 
-  function handleSave(event) {
+  async function handleSave(event) {
     event.preventDefault();
     if (text.trim() === "") return;
     if (text === todo.text) {
@@ -74,7 +81,7 @@ export function TodoItem({ todo }) {
 
       {todo.isEditing ? (
         // This button doesn't need an onClick because the save is handled by onBlur and Enter key
-        <ButtonIcon>
+        <ButtonIcon disabled={isLoading}>
           <Save size={16} />
         </ButtonIcon>
       ) : (
@@ -82,7 +89,7 @@ export function TodoItem({ todo }) {
           <Pencil size={16} />
         </ButtonIcon>
       )}
-      <ButtonIcon onClick={() => actions.deleteTodo({ ...todo })}>
+      <ButtonIcon onClick={handleDelete} disabled={isLoading}>
         <Trash size={16} />
       </ButtonIcon>
     </div>
