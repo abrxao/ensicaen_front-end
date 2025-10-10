@@ -46,11 +46,13 @@ export function TodoItem({ todo }) {
       actions.cancelEdit({ ...todo });
       return;
     }
-    actions.updateTodo({
+    setIsLoading(true);
+    await actions.updateTodo({
       ...todo,
       text: text,
       isEditing: false,
     });
+    setIsLoading(false);
   }
   return (
     <div className="todo-item" data-completed={todo.completed}>
@@ -64,7 +66,7 @@ export function TodoItem({ todo }) {
         <InputText
           autoFocus
           onBlur={handleSave}
-          defaultValue={todo.text}
+          value={todo.text}
           onChange={handleChange}
           onKeyDown={handleKeyDown}
           className="todo-edit-input"

@@ -2,17 +2,20 @@ import { useState } from "react";
 import { useTodoContext } from "/src/contexts/TodoContext";
 import Button from "/src/components/ui/Button";
 import InputText from "/src/components/ui/InputText";
+import { Trans } from "@lingui/react/macro";
 
 export function TodoForm() {
   const { actions } = useTodoContext();
-
+  const [isLoading, setIsLoading] = useState(false);
   const [text, setText] = useState("");
 
   async function handleSubmit(event) {
     event.preventDefault();
     if (text.trim().length) {
+      setIsLoading(true);
       await actions.addTodo(text.trim());
       setText("");
+      setIsLoading(false);
     }
   }
 
@@ -23,7 +26,9 @@ export function TodoForm() {
         type="text"
         onChange={(e) => setText(e.target.value)}
       />
-      <Button>ADD</Button>
+      <Button disabled={isLoading}>
+        <Trans>Ajouter</Trans>
+      </Button>
     </form>
   );
 }
