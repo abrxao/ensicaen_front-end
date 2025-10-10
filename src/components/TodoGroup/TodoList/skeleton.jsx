@@ -1,7 +1,7 @@
 import Skeleton from "src/components/ui/Skeleton";
 
 export default function TodoListSkeleton() {
-  const arr = Array(20).fill(1);
+  const arr = Array(8).fill(1);
   return (
     <>
       {arr.map((_, index) => {

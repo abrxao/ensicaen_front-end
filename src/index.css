@@ -8,6 +8,7 @@
 @import "/src/components/ui/Skeleton/Skeleton.css";
 @import "/src/components/NavigationMenu/NavigationMenu.css";
 @import "/src/components/TodoGroup/TodoList/TodoList.css";
+@import "/src/components/TodoGroup/TodoList/EmptyTodoList.css";
 @import "/src/components/TodoGroup/TodoItem/TodoItem.css";
 @import "/src/components/TodoGroup/TodoFilter/TodoFilter.css";
 @import "/src/components/Header/Header.css";
