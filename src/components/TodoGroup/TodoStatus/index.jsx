@@ -15,9 +15,7 @@ export default function TodoStatus() {
   });
 
   useEffect(() => {
-    if (!loading) {
-      handleUpdate();
-    }
+    handleUpdate();
   }, [state.todos]);
 
   function handleUpdate() {
@@ -48,13 +46,11 @@ export default function TodoStatus() {
       <div className="todo-status-content">
         <p className="status-title">
           <b>
-            <p>
-              {status.all ? (
-                <Trans>Votre tâches completition status</Trans>
-              ) : (
-                <Trans>Vous n'avez pas de tâches</Trans>
-              )}
-            </p>
+            {status.all ? (
+              <Trans>Votre tâches completition status</Trans>
+            ) : (
+              <Trans>Vous n'avez pas de tâches</Trans>
+            )}
           </b>
         </p>
         {status.all != 0 && (

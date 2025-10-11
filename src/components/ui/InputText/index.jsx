@@ -1,18 +1,12 @@
 export default function InputText({
-  value,
-  onChange,
-  onKeyDown,
-  onBlur,
   autoFocus = false,
   className = "",
+  ...props
 }) {
   return (
     <input
-      value={value}
+      {...props}
       type="text"
-      onChange={onChange}
-      onKeyDown={onKeyDown}
-      onBlur={onBlur}
       autoFocus={autoFocus}
       className={`input-text ${className}`}
     />

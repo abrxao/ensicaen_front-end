@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { toast } from "react-hot-toast";
+import { useTodoContext } from "src/contexts/TodoContext";
 const BASE_URL = "https://dummyjson.com";
 export const USER_ID = 1;
 
@@ -7,6 +8,7 @@ export const useTodoAPI = () => {
   const [todos, setTodos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const { actions } = useTodoContext();
 
   // Récupérer tous les todos
   const fetchTodos = async (limit = 10) => {
@@ -29,6 +31,7 @@ export const useTodoAPI = () => {
         userId: todo.userId,
       }));
       setTodos(adaptedTodos);
+      actions.setTodos(adaptedTodos);
     } catch (err) {
       setError(err.message);
     } finally {

@@ -6,7 +6,7 @@ import { Pencil, Save, Trash } from "lucide-react";
 
 export function TodoItem({ todo }) {
   const { actions } = useTodoContext();
-  const [text, setText] = useState(todo.text);
+  const [text, setText] = useState(todo.text ?? "");
   const [isLoading, setIsLoading] = useState(false);
 
   async function handleKeyDown(event) {
@@ -66,7 +66,8 @@ export function TodoItem({ todo }) {
         <InputText
           autoFocus
           onBlur={handleSave}
-          value={todo.text}
+          defaultValue={todo.text}
+          value={text}
           onChange={handleChange}
           onKeyDown={handleKeyDown}
           className="todo-edit-input"

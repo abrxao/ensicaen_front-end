@@ -20,15 +20,10 @@ export const useTodoContext = () => {
 export const TodoProvider = ({ children }) => {
   const [state, dispatch] = useReducer(todoReducer, initialState);
   const {
-    todos: todosApi,
     deleteTodo: deleteFromAPI,
     updateTodo: updateFromAPI,
     addTodo: addToAPI,
   } = useTodoAPI();
-
-  useEffect(() => {
-    actions.setTodos(todosApi);
-  }, [todosApi]);
 
   const actions = {
     setTodos: (todos) => {
