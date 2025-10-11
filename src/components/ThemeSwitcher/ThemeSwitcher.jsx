@@ -1,18 +1,23 @@
 import { useTheme } from "/src/contexts/ThemeContext";
-import { Trans } from "@lingui/react/macro";
+import { Trans, useLingui } from "@lingui/react/macro";
 import DropDown, { Option } from "../ui/DropDown";
 
 export function ThemeSwitcher() {
   // Pega o tema atual e a função para alterá-lo do contexto
   const { theme, setTheme } = useTheme();
-
+  const { t } = useLingui();
+  const ariaLabelTheme = t`bouton pour changer le theme`;
   // Função para lidar com a mudança de valor no dropdown
   const handleThemeChange = (e) => {
     setTheme(e.target.value);
   };
 
   return (
-    <DropDown onChange={handleThemeChange} value={theme}>
+    <DropDown
+      aria-label={ariaLabelTheme}
+      onChange={handleThemeChange}
+      value={theme}
+    >
       <Option value="system">
         💻 <Trans>Sistéme</Trans>
       </Option>

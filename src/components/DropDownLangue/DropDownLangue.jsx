@@ -1,5 +1,5 @@
 import React from "react";
-import { useLingui } from "@lingui/react";
+import { useLingui } from "@lingui/react/macro";
 import { i18n } from "@lingui/core";
 import DropDown, { Option } from "/src/components/ui/DropDown";
 
@@ -9,7 +9,8 @@ const languages = [
 ];
 
 const DropDownLangue = () => {
-  const { i18n: linguiI18n } = useLingui();
+  const { i18n: linguiI18n, t } = useLingui();
+  const ariaLabelLangue = t`bouton pour changer la langue`;
 
   const handleChange = (e) => {
     const lang = e.target.value;
@@ -18,7 +19,11 @@ const DropDownLangue = () => {
   };
 
   return (
-    <DropDown value={linguiI18n.locale} onChange={handleChange}>
+    <DropDown
+      value={linguiI18n.locale}
+      aria-label={ariaLabelLangue}
+      onChange={handleChange}
+    >
       {languages.map((lang) => (
         <Option key={lang.code} value={lang.code}>
           {lang.label}
