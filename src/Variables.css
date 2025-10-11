@@ -6,7 +6,8 @@
   --color-bg-deactivate: #dce1e2;
   --color-text: #5c706d;
   --color-accent: #ff8a65;
-  --color-border: #f2e9e4;
+  --color-border: #efdbd0;
+  --color-error: #ca483a;
 }
 
 :root.dark {
@@ -18,5 +19,6 @@
   --color-bg-deactivate: #546e7a;
   --color-text: #f0fafa;
   --color-accent: #ffccbc;
-  --color-border: #3f585c;
+  --color-border: #546e72;
+  --color-error: #ef5643;
 }

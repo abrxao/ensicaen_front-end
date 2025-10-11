@@ -1,4 +1,3 @@
-import { Trans } from "@lingui/react/macro";
 import DropDownLangue from "/src/components/DropDownLangue/DropDownLangue";
 import { ThemeSwitcher } from "/src/components/ThemeSwitcher/ThemeSwitcher";
 import NavigationMenu from "/src/components/NavigationMenu";
@@ -9,9 +8,7 @@ export default function Header() {
     <header className="main-header">
       <div className="groups-header">
         <PackageCheck size={32} />
-        <h1>
-          <Trans>Pour faire</Trans>
-        </h1>
+        <h1>Mes Tâches</h1>
       </div>
 
       <NavigationMenu />

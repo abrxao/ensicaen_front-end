@@ -3,14 +3,14 @@
   align-items: center;
   justify-content: center;
   background-color: var(--color-bg-accent);
-  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='16' ry='16' stroke='lightgray' stroke-width='4' stroke-dasharray='12%2c 12' stroke-dashoffset='0' stroke-linecap='round'/%3e%3c/svg%3e");
-  border-radius: 16px;
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='8' ry='8' stroke='lightgray' stroke-width='4' stroke-dasharray='12%2c 12' stroke-dashoffset='0' stroke-linecap='round'/%3e%3c/svg%3e");
+  border-radius: 0.5em;
   font-size: 1em;
   animation: empty-todo-list 0.3s ease;
   text-wrap: none;
   overflow: hidden;
   height: 72px;
-  width: 50%;
+  width: 100%;
 }
 .empty-todo-list-wrapper {
   display: flex;

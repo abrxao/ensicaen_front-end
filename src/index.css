@@ -11,4 +11,5 @@
 @import "/src/components/TodoGroup/TodoList/EmptyTodoList.css";
 @import "/src/components/TodoGroup/TodoItem/TodoItem.css";
 @import "/src/components/TodoGroup/TodoFilter/TodoFilter.css";
+@import "/src/components/TodoGroup/TodoStatus/TodoStatus.css";
 @import "/src/components/Header/Header.css";

@@ -7,6 +7,7 @@ import { Routes, Route, Navigate } from "react-router";
 import { PATHS } from "/src/paths";
 import Header from "./components/Header";
 import TodoFilter from "./components/TodoGroup/TodoFilter";
+import TodoStatus from "./components/TodoGroup/TodoStatus";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             path={PATHS.TODOS.href}
             element={
               <>
+                <TodoStatus />
                 <TodoFilter />
                 <TodoForm />
                 <TodoList />

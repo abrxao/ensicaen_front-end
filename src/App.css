@@ -9,7 +9,7 @@
 }
 h2 {
   margin: 0 0 0.5em 0;
-  font-size: 1.5em;
+  font-size: 1.4em;
   font-weight: 600;
   color: var(--color-text);
 }
@@ -20,9 +20,11 @@ body {
   background-color: var(--color-bg);
   min-width: 320px;
 }
-
+b {
+  font-weight: 700;
+}
 h1 {
-  font-size: 2.1em;
+  font-size: 2em;
   line-height: 1.1;
   background-image: linear-gradient(
     -60deg,

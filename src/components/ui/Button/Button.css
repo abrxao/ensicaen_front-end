@@ -9,6 +9,7 @@ button.btn {
   background-color: var(--color-bg-alt);
   cursor: pointer;
   transition: border-color 0.25s;
+  border: 1px solid var(--color-border);
 }
 button:disabled {
   opacity: 0.5;
