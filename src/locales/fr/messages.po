@@ -13,22 +13,79 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/ThemeSwitcher/ThemeSwitcher.jsx:25
+#: src/components/TodoGroup/TodoFilter/index.jsx:22
+msgid "Actif"
+msgstr "Actif"
+
+#: src/components/TodoGroup/TodoForm/index.jsx:31
+msgid "Ajouter"
+msgstr "Ajouter"
+
+#: src/components/TodoGroup/TodoForm/index.jsx:12
+msgid "Ajouter une nouvelle tâche"
+msgstr "Ajouter une nouvelle tâche"
+
+#: src/components/ThemeSwitcher/ThemeSwitcher.jsx:20
 msgid "Clair"
 msgstr "Clair"
 
-#: src/components/ThemeSwitcher/ThemeSwitcher.jsx:28
+#: src/components/NavigationMenu/index.jsx:10
+msgid "cliquez pour aller à la page d'accueil"
+msgstr "cliquez pour aller à la page d'accueil"
+
+#: src/components/NavigationMenu/index.jsx:11
+msgid "cliquez pour aller à la page des tâches"
+msgstr "cliquez pour aller à la page des tâches"
+
+#. placeholder {0}: state.todos.reduce( (sum, todo) => (todo.completed ? sum + 1 : sum), 0 )
+#: src/components/TodoGroup/TodoFilter/index.jsx:34
+msgid "Complet({0})"
+msgstr "Complet({0})"
+
+#: src/components/TodoGroup/TodoStatus/index.jsx:60
+msgid "complets"
+msgstr "complets"
+
+#: src/components/TodoGroup/TodoList/EmptyTodoList.jsx:8
+msgid "Il n'y a rien la "
+msgstr "Il n'y a rien la "
+
+#: src/components/NavigationMenu/index.jsx:10
+#~ msgid "navigate to "
+#~ msgstr "navigate to "
+
+#: src/components/ThemeSwitcher/ThemeSwitcher.jsx:23
 msgid "Noir"
 msgstr "Noir"
 
 #: src/App.jsx:16
-msgid "Pour faire"
-msgstr "Pour faire"
+#~ msgid "Pour faire"
+#~ msgstr "Pour faire"
 
-#: src/components/ThemeSwitcher/ThemeSwitcher.jsx:22
+#: src/components/TodoGroup/TodoStatus/index.jsx:80
+msgid "restantes"
+msgstr "restantes"
+
+#: src/components/ThemeSwitcher/ThemeSwitcher.jsx:17
 msgid "Sistéme"
 msgstr "Sistéme"
 
 #: src/components/ThemeSwitcher/ThemeSwitcher.jsx:18
-msgid "Theme:"
-msgstr "Theme:"
+#~ msgid "Theme:"
+#~ msgstr "Theme:"
+
+#: src/components/TodoGroup/TodoFilter/index.jsx:15
+msgid "Tous"
+msgstr "Tous"
+
+#: src/components/TodoGroup/TodoStatus/index.jsx:72
+msgid "Tout a fait"
+msgstr "Tout a fait"
+
+#: src/components/TodoGroup/TodoStatus/index.jsx:50
+msgid "Votre tâches completition status"
+msgstr "Votre tâches completition status"
+
+#: src/components/TodoGroup/TodoStatus/index.jsx:52
+msgid "Vous n'avez pas de tâches"
+msgstr "Vous n'avez pas de tâches"
