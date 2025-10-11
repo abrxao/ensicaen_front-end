@@ -13,19 +13,43 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/components/TodoGroup/TodoFilter/index.jsx:22
+#: src/components/TodoGroup/TodoFilter/index.jsx:26
 msgid "Actif"
 msgstr "Active"
 
-#: src/components/TodoGroup/TodoForm/index.jsx:31
+#: src/components/TodoGroup/TodoFilter/index.jsx:23
+msgid "Afficher les tâches actives"
+msgstr "Show active tasks"
+
+#: src/components/TodoGroup/TodoFilter/index.jsx:36
+msgid "Afficher les tâches complétées"
+msgstr "Show completed tasks"
+
+#: src/components/TodoGroup/TodoFilter/index.jsx:15
+msgid "Afficher toutes les tâches"
+msgstr "Show all tasks"
+
+#: src/components/TodoGroup/TodoForm/index.jsx:33
 msgid "Ajouter"
 msgstr "Add"
+
+#: src/components/TodoGroup/TodoForm/index.jsx:32
+msgid "Ajouter la nouvelle tâche"
+msgstr "Add the new task"
 
 #: src/components/TodoGroup/TodoForm/index.jsx:12
 msgid "Ajouter une nouvelle tâche"
 msgstr "Add a new task"
 
-#: src/components/ThemeSwitcher/ThemeSwitcher.jsx:20
+#: src/components/DropDownLangue/DropDownLangue.jsx:13
+msgid "bouton pour changer la langue"
+msgstr "button to change the language"
+
+#: src/components/ThemeSwitcher/ThemeSwitcher.jsx:9
+msgid "bouton pour changer le theme"
+msgstr "button to change the theme"
+
+#: src/components/ThemeSwitcher/ThemeSwitcher.jsx:25
 msgid "Clair"
 msgstr "Light"
 
@@ -38,7 +62,7 @@ msgid "cliquez pour aller à la page des tâches"
 msgstr "Click to go to the tasks page"
 
 #. placeholder {0}: state.todos.reduce( (sum, todo) => (todo.completed ? sum + 1 : sum), 0 )
-#: src/components/TodoGroup/TodoFilter/index.jsx:34
+#: src/components/TodoGroup/TodoFilter/index.jsx:39
 msgid "Complet({0})"
 msgstr "Completed({0})"
 
@@ -50,11 +74,21 @@ msgstr "completed"
 msgid "Il n'y a rien la "
 msgstr "There's nothing here"
 
-#: src/components/NavigationMenu/index.jsx:10
-#~ msgid "navigate to "
-#~ msgstr ""
+#. placeholder {0}: todo.text
+#: src/components/TodoGroup/TodoItem/index.jsx:66
+msgid "Marquer la tâche \"{0}\" comme complétée"
+msgstr "Mark task \"{0}\" as completed"
 
-#: src/components/ThemeSwitcher/ThemeSwitcher.jsx:23
+#. placeholder {0}: todo.text
+#: src/components/TodoGroup/TodoItem/index.jsx:99
+msgid "Modifier la tâche \"{0}\""
+msgstr "Edit task \"{0}\""
+
+#: src/components/TodoGroup/TodoItem/index.jsx:77
+msgid "Modifier le texte de la tâche"
+msgstr "Edit the task text"
+
+#: src/components/ThemeSwitcher/ThemeSwitcher.jsx:28
 msgid "Noir"
 msgstr "Dark"
 
@@ -66,15 +100,24 @@ msgstr "Dark"
 msgid "restantes"
 msgstr "remaining"
 
-#: src/components/ThemeSwitcher/ThemeSwitcher.jsx:17
+#: src/components/TodoGroup/TodoItem/index.jsx:92
+msgid "Sauvegarder les modifications"
+msgstr "Save changes"
+
+#: src/components/ThemeSwitcher/ThemeSwitcher.jsx:22
 msgid "Sistéme"
 msgstr "System"
+
+#. placeholder {0}: todo.text
+#: src/components/TodoGroup/TodoItem/index.jsx:107
+msgid "Supprimer la tâche \"{0}\""
+msgstr "Delete task \"{0}\""
 
 #: src/components/ThemeSwitcher/ThemeSwitcher.jsx:18
 #~ msgid "Theme:"
 #~ msgstr "Theme:"
 
-#: src/components/TodoGroup/TodoFilter/index.jsx:15
+#: src/components/TodoGroup/TodoFilter/index.jsx:18
 msgid "Tous"
 msgstr "All"
 

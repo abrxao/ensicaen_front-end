@@ -3,11 +3,13 @@ import { useTodoContext } from "/src/contexts/TodoContext";
 import ButtonIcon from "/src/components/ui/ButtonIcon";
 import InputText from "/src/components/ui/InputText";
 import { Pencil, Save, Trash } from "lucide-react";
+import { useLingui } from "@lingui/react/macro";
 
 export function TodoItem({ todo }) {
   const { actions } = useTodoContext();
-  const [text, setText] = useState(todo.text ?? "");
+  const [text, setText] = useState(todo.text);
   const [isLoading, setIsLoading] = useState(false);
+  const { t } = useLingui();
 
   async function handleKeyDown(event) {
     if (event.key === "Escape") {
@@ -61,17 +63,18 @@ export function TodoItem({ todo }) {
         checked={todo.completed}
         onChange={() => actions.toggleTodo({ ...todo })}
         className="todo-checkbox"
+        aria-label={t`Marquer la tâche "${todo.text}" comme complétée`}
       />
       {todo.isEditing ? (
         <InputText
           autoFocus
           onBlur={handleSave}
-          defaultValue={todo.text}
           value={text}
           onChange={handleChange}
           onKeyDown={handleKeyDown}
           className="todo-edit-input"
           type="text"
+          aria-label={t`Modifier le texte de la tâche`}
         />
       ) : (
         <span
@@ -84,15 +87,25 @@ export function TodoItem({ todo }) {
 
       {todo.isEditing ? (
         // This button doesn't need an onClick because the save is handled by onBlur and Enter key
-        <ButtonIcon disabled={isLoading}>
+        <ButtonIcon
+          disabled={isLoading}
+          aria-label={t`Sauvegarder les modifications`}
+        >
           <Save size={16} />
         </ButtonIcon>
       ) : (
-        <ButtonIcon onClick={() => actions.startEdit({ ...todo })}>
+        <ButtonIcon
+          onClick={() => actions.startEdit({ ...todo })}
+          aria-label={t`Modifier la tâche "${todo.text}"`}
+        >
           <Pencil size={16} />
         </ButtonIcon>
       )}
-      <ButtonIcon onClick={handleDelete} disabled={isLoading}>
+      <ButtonIcon
+        onClick={handleDelete}
+        disabled={isLoading}
+        aria-label={t`Supprimer la tâche "${todo.text}"`}
+      >
         <Trash size={16} />
       </ButtonIcon>
     </div>

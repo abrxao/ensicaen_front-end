@@ -10,6 +10,7 @@ export function TodoForm() {
   const [text, setText] = useState("");
   const { t } = useLingui();
   const placeholder = t`Ajouter une nouvelle tâche`;
+
   async function handleSubmit(event) {
     event.preventDefault();
     if (text.trim().length) {
@@ -26,8 +27,9 @@ export function TodoForm() {
         value={text}
         type="text"
         onChange={(e) => setText(e.target.value)}
+        aria-label={placeholder}
       />
-      <Button disabled={isLoading}>
+      <Button disabled={isLoading} aria-label={t`Ajouter la nouvelle tâche`}>
         <Trans>Ajouter</Trans>
       </Button>
     </form>
