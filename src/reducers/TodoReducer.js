@@ -25,7 +25,7 @@ export const todoReducer = (state, action) => {
     case TODO_ACTIONS.ADD:
       return {
         ...state,
-        todos: [...state.todos, action.payload],
+        todos: [action.payload, ...state.todos],
       };
     case TODO_ACTIONS.UPDATE:
       const updatedTodos = state.todos.map((todo) =>

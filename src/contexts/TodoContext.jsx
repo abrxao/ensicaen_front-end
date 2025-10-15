@@ -33,7 +33,12 @@ export const TodoProvider = ({ children }) => {
       });
     },
     addTodo: async (text) => {
-      await addToAPI(text);
+      const todoId = Date.now();
+      await addToAPI(text, todoId);
+      dispatch({
+        type: TODO_ACTIONS.ADD,
+        payload: { id: todoId, text: text, completed: false },
+      });
     },
     deleteTodo: async (todo) => {
       await deleteFromAPI(todo.id);

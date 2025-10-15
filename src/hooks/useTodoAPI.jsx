@@ -38,7 +38,7 @@ export const useTodoAPI = () => {
       setLoading(false);
     }
   };
-  const addTodo = async (todoText) => {
+  const addTodo = async (todoText, todoId) => {
     try {
       const response = await fetch(`${BASE_URL}/todos/add`, {
         method: "POST",
@@ -53,7 +53,7 @@ export const useTodoAPI = () => {
       // Setting states in todos api
       setTodos((prevTodos) => [
         {
-          id: Date.now(),
+          id: todoId,
           text: newTodo.todo,
           completed: newTodo.completed,
         },
