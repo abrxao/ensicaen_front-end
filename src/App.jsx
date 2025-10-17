@@ -8,6 +8,7 @@ import { PATHS } from "/src/paths";
 import Header from "./components/Header";
 import TodoFilter from "./components/TodoGroup/TodoFilter";
 import TodoStatus from "./components/TodoGroup/TodoStatus";
+import PageNotFound from "./components/ErrorsPage/PageNotFound";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
             }
           />
           <Route path={PATHS.HOME.href} element={<></>} />
+          <Route path={"*"} element={<PageNotFound />} />
         </Routes>
       </section>
     </TodoProvider>

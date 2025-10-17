@@ -92,6 +92,14 @@ msgstr "Edit the task text"
 msgid "Noir"
 msgstr "Dark"
 
+#: src/components/ErrorsPage/PageNotFound.jsx:14
+msgid "Oups ! La page que vous recherchez n'existe pas ou a peut-être été déplacée."
+msgstr "Oops! The page you are looking for does not exist or may have been moved."
+
+#: src/components/ErrorsPage/PageNotFound.jsx:11
+msgid "Page non trouvée"
+msgstr "Page not found"
+
 #: src/App.jsx:16
 #~ msgid "Pour faire"
 #~ msgstr "To-Do"
@@ -99,6 +107,10 @@ msgstr "Dark"
 #: src/components/TodoGroup/TodoStatus/index.jsx:80
 msgid "restantes"
 msgstr "remaining"
+
+#: src/components/ErrorsPage/PageNotFound.jsx:20
+msgid "Retour à l'accueil"
+msgstr "Back to home"
 
 #: src/components/TodoGroup/TodoItem/index.jsx:92
 msgid "Sauvegarder les modifications"
