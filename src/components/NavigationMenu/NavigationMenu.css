@@ -1,29 +1,131 @@
-nav.navigation-menu {
+.navbar-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
-nav.navigation-menu a.nav-link {
+/* --- MenuBar (Navegação Principal) --- */
+
+.navbar-menubar {
   display: flex;
   align-items: center;
-  gap: 0.3em;
-  margin: 0 12px;
-  font-weight: 500;
+  gap: 1.5rem;
+}
+
+.navbar-item {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* Estilo Base para Links e Botões (menuitem) */
+.navbar-link,
+.navbar-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  font-weight: bold;
   color: var(--color-text);
   text-decoration: none;
-  font-size: 1.1em;
-  border-bottom: 2px solid transparent;
-  transition: border-bottom 0.2s;
-  padding-bottom: 3px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+  height: 100%;
 }
-nav.navigation-menu a:hover.nav-link {
-  border-bottom: 2px solid var(--color-text);
+
+/* Efeitos de Interação */
+.navbar-link:hover,
+.navbar-button:hover {
+  /* Usa a cor de fundo alternativa ou sutilmente diferente */
+  background-color: var(--color-bg-alt);
 }
-nav.navigation-menu a[data-active="true"].nav-link {
+
+/* Estado de Foco (A11y) */
+.navbar-link:focus,
+.navbar-button:focus,
+.navbar-dropdown-item:focus {
+  /* Usa a cor de destaque (accent) para o anel de foco */
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Estado Ativo do NavLink (item regular) */
+.navbar-link.active {
+  /* Cor de destaque para o texto e borda */
+  color: var(--color-accent);
+  padding-bottom: 0.5rem;
+}
+
+.navbar-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* --- Dropdown Menu --- */
+
+.navbar-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 10;
+  min-width: 200px;
+  /* Usa o fundo principal e a borda */
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-top: none;
+  /* Sombra leve */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 0;
+  border-radius: 0 0 4px 4px;
+}
+
+:root.dark .navbar-dropdown {
+  /* Ajusta a sombra para o modo escuro */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.navbar-dropdown-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar-dropdown-item {
+  display: block;
+  padding: 0.5rem 1rem;
+  /* Usa a cor de texto padrão */
+  color: var(--color-text);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.15s;
+}
+
+.navbar-dropdown-item:hover,
+.navbar-dropdown-item:active {
+  /* Usa a cor de fundo alternativa para hover */
+  background-color: var(--color-bg-alt);
+}
+
+/* Estado Ativo do NavLink (item do dropdown) */
+.navbar-dropdown-item.active {
+  /* Usa a cor de fundo de destaque e cor de texto de destaque */
+  background-color: var(--color-bg-accent);
   color: var(--color-accent);
 }
 
-nav.navigation-menu a[data-active="true"]:hover.nav-link {
-  border-bottom: 2px solid var(--color-accent);
+/* --- Chevron (Seta do Dropdown) --- */
+
+.navbar-chevron {
+  width: 16px;
+  height: 16px;
+  margin-left: 0.25rem;
+  transition: transform 0.2s;
+}
+
+.navbar-chevron[data-is-rotated="true"] {
+  transform: rotate(180deg);
 }

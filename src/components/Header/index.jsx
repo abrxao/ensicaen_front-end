@@ -10,7 +10,6 @@ export default function Header() {
         <PackageCheck size={32} />
         <h1>Mes Tâches</h1>
       </div>
-
       <NavigationMenu />
       <div className="groups-header">
         <DropDownLangue />

@@ -13,6 +13,10 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: src/components/NavigationMenu/index.jsx:104
+msgid "Accueil"
+msgstr "Home"
+
 #: src/components/TodoGroup/TodoFilter/index.jsx:26
 msgid "Actif"
 msgstr "Active"
@@ -54,12 +58,12 @@ msgid "Clair"
 msgstr "Light"
 
 #: src/components/NavigationMenu/index.jsx:10
-msgid "cliquez pour aller à la page d'accueil"
-msgstr "Click to go to the home page"
+#~ msgid "cliquez pour aller à la page d'accueil"
+#~ msgstr "Click to go to the home page"
 
 #: src/components/NavigationMenu/index.jsx:11
-msgid "cliquez pour aller à la page des tâches"
-msgstr "Click to go to the tasks page"
+#~ msgid "cliquez pour aller à la page des tâches"
+#~ msgstr "Click to go to the tasks page"
 
 #. placeholder {0}: state.todos.reduce( (sum, todo) => (todo.completed ? sum + 1 : sum), 0 )
 #: src/components/TodoGroup/TodoFilter/index.jsx:39
@@ -124,6 +128,15 @@ msgstr "System"
 #: src/components/TodoGroup/TodoItem/index.jsx:107
 msgid "Supprimer la tâche \"{0}\""
 msgstr "Delete task \"{0}\""
+
+#: src/components/NavigationMenu/index.jsx:108
+#: src/components/NavigationMenu/index.jsx:113
+msgid "Tâches"
+msgstr "Tasks"
+
+#: src/components/NavigationMenu/index.jsx:118
+msgid "Tâches archivées"
+msgstr "Archiveds Tasks"
 
 #: src/components/ThemeSwitcher/ThemeSwitcher.jsx:18
 #~ msgid "Theme:"
