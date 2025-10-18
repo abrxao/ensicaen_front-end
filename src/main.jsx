@@ -8,6 +8,7 @@ import mEN from "./locales/en/messages";
 import "./index.css";
 import { ThemeProvider } from "./contexts/ThemeContext.jsx";
 import { HashRouter } from "react-router";
+import { TodoProvider } from "./contexts/TodoContext.jsx";
 
 i18n.load({ fr: mFR.messages, en: mEN.messages });
 i18n.activate("fr");
@@ -16,9 +17,11 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <ThemeProvider>
       <HashRouter>
-        <I18nProvider i18n={i18n}>
-          <App />
-        </I18nProvider>
+        <TodoProvider>
+          <I18nProvider i18n={i18n}>
+            <App />
+          </I18nProvider>
+        </TodoProvider>
       </HashRouter>
     </ThemeProvider>
   </StrictMode>

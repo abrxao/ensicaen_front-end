@@ -1,13 +1,10 @@
 import { Trans } from "@lingui/react/macro";
 import { ArrowBigRightDash } from "lucide-react";
 import { useEffect, useState } from "react";
-import Skeleton from "src/components/ui/Skeleton";
 import { useTodoContext } from "src/contexts/TodoContext";
-import { useTodoAPI } from "src/hooks/useTodoAPI";
 
 export default function TodoStatus() {
   const { state } = useTodoContext();
-  const { loading } = useTodoAPI();
   const [progressSize, setProgressSize] = useState(0);
   const [status, setStatus] = useState({
     all: 0,
@@ -30,17 +27,7 @@ export default function TodoStatus() {
       setProgressSize(perc * 100);
     }
   }
-  if (loading) {
-    return (
-      <Skeleton
-        style={{
-          flexGrow: "1",
-          height: "60px",
-          borderRadius: "0.5em",
-        }}
-      />
-    );
-  }
+
   return (
     <div className="todo-status">
       <div className="todo-status-content">

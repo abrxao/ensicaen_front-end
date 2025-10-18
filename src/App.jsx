@@ -1,21 +1,28 @@
 import "./App.css";
-import { TodoList } from "/src/components/TodoGroup/TodoList";
-import { TodoProvider } from "/src/contexts/TodoContext";
-import { TodoForm } from "/src/components/TodoGroup/TodoForm";
+import { TodoList } from "src/components/TodoGroup/TodoList";
+import { TodoForm } from "src/components/TodoGroup/TodoForm";
 import { Toaster } from "react-hot-toast";
-import { Routes, Route, Navigate } from "react-router";
-import { PATHS } from "/src/paths";
+import { Routes, Route } from "react-router";
+import { PATHS } from "src/paths";
 import Header from "./components/Header";
 import TodoFilter from "./components/TodoGroup/TodoFilter";
 import TodoStatus from "./components/TodoGroup/TodoStatus";
 import PageNotFound from "./components/ErrorsPage/PageNotFound";
+import { useTodoAPI } from "./hooks/useTodoAPI";
+import { useEffect } from "react";
+import LoadingScreen from "./components/LoadingScreen";
 
 function App() {
+  const { loading, fetchTodos } = useTodoAPI();
+
+  useEffect(() => {
+    fetchTodos(10);
+  }, []);
+
   return (
-    <TodoProvider>
+    <>
       <Toaster position="bottom-right" reverseOrder={true} />
       <Header />
-
       <section className="todo-content">
         <Routes>
           <Route
@@ -33,7 +40,8 @@ function App() {
           <Route path={"*"} element={<PageNotFound />} />
         </Routes>
       </section>
-    </TodoProvider>
+      <LoadingScreen loading={loading} />
+    </>
   );
 }
 

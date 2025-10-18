@@ -5,7 +5,6 @@
 @import "/src/components/ui/ButtonIcon/ButtonIcon.css";
 @import "/src/components/ui/InputText/InputText.css";
 @import "/src/components/ui/DropDown/DropDown.css";
-@import "/src/components/ui/Skeleton/Skeleton.css";
 @import "/src/components/NavigationMenu/NavigationMenu.css";
 @import "/src/components/TodoGroup/TodoList/TodoList.css";
 @import "/src/components/TodoGroup/TodoList/EmptyTodoList.css";
@@ -13,4 +12,5 @@
 @import "/src/components/TodoGroup/TodoFilter/TodoFilter.css";
 @import "/src/components/TodoGroup/TodoStatus/TodoStatus.css";
 @import "/src/components/Header/Header.css";
+@import "/src/components/LoadingScreen/LoadingScreen.css";
 @import "/src/components/ErrorsPage/PageNotFound.css";

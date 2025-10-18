@@ -7,10 +7,12 @@ export const TODO_ACTIONS = {
   CANCEL_EDIT: "CANCEL_EDIT",
   SET_TODOS: "SET_TODOS",
   SET_FILTER: "SET_FILTER",
+  UNARCHIVE: "UNARCHIVE",
 };
 
 export const initialState = {
   todos: [],
+  archivedTodos: [],
   filter: "all", // all, active, completed
 };
 
@@ -38,6 +40,7 @@ export const todoReducer = (state, action) => {
     case TODO_ACTIONS.DELETE:
       return {
         ...state,
+        archivedTodos: [action.payload, ...state.archivedTodos],
         todos: state.todos.filter((todo) => todo.id !== action.payload.id),
       };
     case TODO_ACTIONS.TOGGLE:
@@ -71,7 +74,13 @@ export const todoReducer = (state, action) => {
         ...state,
         filter: action.payload.filter,
       };
-
-    // TODO: Implémentez les autres actions
+    case TODO_ACTIONS.UNARCHIVE:
+      return {
+        ...state,
+        todos: [todo, ...state.todos],
+        archivedTodos: state.todos.filter(
+          (todo) => todo.id !== action.payload.id
+        ),
+      };
   }
 };

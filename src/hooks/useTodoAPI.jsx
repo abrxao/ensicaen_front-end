@@ -35,7 +35,7 @@ export const useTodoAPI = () => {
     } catch (err) {
       setError(err.message);
     } finally {
-      setLoading(false);
+      setTimeout(() => setLoading(false), 1000); // time for loading animation be completed
     }
   };
   const addTodo = async (todoText, todoId) => {
@@ -102,9 +102,7 @@ export const useTodoAPI = () => {
       setError("Impossible de supprimer la tâche.");
     }
   };
-  useEffect(() => {
-    fetchTodos(10);
-  }, []);
+
   return { todos, loading, error, fetchTodos, addTodo, updateTodo, deleteTodo };
   // TODO : Ajoutez les autres fonctions d'appels à l'API (voir la doc de l’API)
 };
