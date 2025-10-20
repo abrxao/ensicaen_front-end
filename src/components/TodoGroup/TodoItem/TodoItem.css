@@ -7,7 +7,7 @@
   padding: 0.6em 1.2em;
   border-radius: 0.5em;
   border: var(--color-border) 1px solid;
-  box-shadow: var(--shadow);
+  box-shadow: 0 4px 4px var(--color-shadow);
   transition: background-color 0.3s;
 }
 .todo-item:hover {

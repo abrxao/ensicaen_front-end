@@ -8,6 +8,7 @@
   --color-accent: #ff8a65;
   --color-border: #efdbd0;
   --color-error: #ca483a;
+  --color-shadow: #00000022;
 }
 
 :root.dark {
@@ -21,4 +22,5 @@
   --color-accent: #ffccbc;
   --color-border: #546e72;
   --color-error: #ef5643;
+  --color-shadow: #18181899;
 }
