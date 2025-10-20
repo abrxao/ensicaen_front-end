@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { useTodoContext } from "/src/contexts/TodoContext";
-import ButtonIcon from "/src/components/ui/ButtonIcon";
-import InputText from "/src/components/ui/InputText";
-import { Pencil, Save, Trash } from "lucide-react";
+import { useTodoContext } from "src/contexts/TodoContext";
+import ButtonIcon from "src/components/ui/ButtonIcon";
+import InputText from "src/components/ui/InputText";
+import { ArchiveRestore, Pencil, Save, Trash } from "lucide-react";
 import { useLingui } from "@lingui/react/macro";
 
-export function TodoItem({ todo }) {
+export function TodoItem({ todo, archived = false }) {
   const { actions } = useTodoContext();
   const [text, setText] = useState(todo.text);
   const [isLoading, setIsLoading] = useState(false);
@@ -34,6 +34,11 @@ export function TodoItem({ todo }) {
   async function handleDelete() {
     setIsLoading(true);
     await actions.deleteTodo({ ...todo });
+    setIsLoading(false);
+  }
+  async function handleUnarchive() {
+    setIsLoading(true);
+    await actions.unarchiveTodo({ ...todo });
     setIsLoading(false);
   }
   function handleChange(event) {
@@ -65,7 +70,7 @@ export function TodoItem({ todo }) {
         className="todo-checkbox"
         aria-label={t`Marquer la tâche "${todo.text}" comme complétée`}
       />
-      {todo.isEditing ? (
+      {todo.isEditing && !archived ? (
         <InputText
           autoFocus
           onBlur={handleSave}
@@ -84,30 +89,44 @@ export function TodoItem({ todo }) {
           {todo.text}
         </span>
       )}
+      <>
+        {archived ? (
+          <ButtonIcon
+            onClick={handleUnarchive}
+            disabled={isLoading}
+            aria-label={t`Désarchiver la tâche "${todo.text}"`}
+          >
+            <ArchiveRestore size={16} />
+          </ButtonIcon>
+        ) : (
+          <>
+            {todo.isEditing ? (
+              // This button doesn't need an onClick because the save is handled by onBlur and Enter key
+              <ButtonIcon
+                disabled={isLoading}
+                aria-label={t`Sauvegarder les modifications`}
+              >
+                <Save size={16} />
+              </ButtonIcon>
+            ) : (
+              <ButtonIcon
+                onClick={() => actions.startEdit({ ...todo })}
+                aria-label={t`Modifier la tâche "${todo.text}"`}
+              >
+                <Pencil size={16} />
+              </ButtonIcon>
+            )}
 
-      {todo.isEditing ? (
-        // This button doesn't need an onClick because the save is handled by onBlur and Enter key
-        <ButtonIcon
-          disabled={isLoading}
-          aria-label={t`Sauvegarder les modifications`}
-        >
-          <Save size={16} />
-        </ButtonIcon>
-      ) : (
-        <ButtonIcon
-          onClick={() => actions.startEdit({ ...todo })}
-          aria-label={t`Modifier la tâche "${todo.text}"`}
-        >
-          <Pencil size={16} />
-        </ButtonIcon>
-      )}
-      <ButtonIcon
-        onClick={handleDelete}
-        disabled={isLoading}
-        aria-label={t`Supprimer la tâche "${todo.text}"`}
-      >
-        <Trash size={16} />
-      </ButtonIcon>
+            <ButtonIcon
+              onClick={handleDelete}
+              disabled={isLoading}
+              aria-label={t`Supprimer la tâche "${todo.text}"`}
+            >
+              <Trash size={16} />
+            </ButtonIcon>
+          </>
+        )}
+      </>
     </div>
   );
 }

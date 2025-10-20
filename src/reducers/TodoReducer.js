@@ -77,8 +77,8 @@ export const todoReducer = (state, action) => {
     case TODO_ACTIONS.UNARCHIVE:
       return {
         ...state,
-        todos: [todo, ...state.todos],
-        archivedTodos: state.todos.filter(
+        todos: [action.payload, ...state.todos],
+        archivedTodos: state.archivedTodos.filter(
           (todo) => todo.id !== action.payload.id
         ),
       };

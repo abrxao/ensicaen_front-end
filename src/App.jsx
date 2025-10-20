@@ -11,6 +11,7 @@ import PageNotFound from "./components/ErrorsPage/PageNotFound";
 import { useTodoAPI } from "./hooks/useTodoAPI";
 import { useEffect } from "react";
 import LoadingScreen from "./components/LoadingScreen";
+import { ArchivedTaskList } from "./components/ArchivedTaskList";
 
 function App() {
   const { loading, fetchTodos } = useTodoAPI();
@@ -37,6 +38,10 @@ function App() {
             }
           />
           <Route path={PATHS.HOME.href} element={<></>} />
+          <Route
+            path={PATHS.ARCHIVED_TODOS.href}
+            element={<ArchivedTaskList />}
+          />
           <Route path={"*"} element={<PageNotFound />} />
         </Routes>
       </section>

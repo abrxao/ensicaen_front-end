@@ -73,6 +73,13 @@ export const TodoProvider = ({ children }) => {
         payload: { id: todo.id },
       });
     },
+    unarchiveTodo: async (todo) => {
+      await addToAPI(todo.text, todo.id);
+      dispatch({
+        type: TODO_ACTIONS.UNARCHIVE,
+        payload: todo,
+      });
+    },
     setFilterTodo: (filter) => {
       dispatch({
         type: TODO_ACTIONS.SET_FILTER,
