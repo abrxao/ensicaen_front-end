@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { toast } from "react-hot-toast";
 import { useTodoContext } from "src/contexts/TodoContext";
+import { useLingui } from "@lingui/react/macro";
 const BASE_URL = "https://dummyjson.com";
 export const USER_ID = 1;
 
@@ -9,7 +10,7 @@ export const useTodoAPI = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const { actions } = useTodoContext();
-
+  const { t } = useLingui();
   // Récupérer tous les todos
   const fetchTodos = async (limit = 10) => {
     try {
@@ -38,7 +39,7 @@ export const useTodoAPI = () => {
       setTimeout(() => setLoading(false), 1000); // time for loading animation be completed
     }
   };
-  const addTodo = async (todoText, todoId) => {
+  const addTodo = async (todoText, todoId, archived) => {
     try {
       const response = await fetch(`${BASE_URL}/todos/add`, {
         method: "POST",
@@ -59,9 +60,14 @@ export const useTodoAPI = () => {
         },
         ...prevTodos,
       ]);
-      toast.success("Tâche ajoutée avec succès !", {
-        duration: 3500 /* 3.5s of popup duration */,
-      });
+      toast.success(
+        archived
+          ? t`Tâche désarchivée avec succès !`
+          : t`Tâche ajoutée avec succès !`,
+        {
+          duration: 3500 /* 3.5s of popup duration */,
+        }
+      );
     } catch (err) {
       setError("Impossible d'ajouter la tâche.");
     }
@@ -80,7 +86,7 @@ export const useTodoAPI = () => {
           todo.id === id ? { ...todo, ...updates } : todo
         )
       );
-      toast.success("Tâche mise à jour avec succès !", {
+      toast.success(t`Tâche mise à jour avec succès !`, {
         duration: 3500 /* 3.5s of popup duration */,
       });
     } catch (err) {
@@ -95,7 +101,7 @@ export const useTodoAPI = () => {
       });
 
       setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id));
-      toast.success("Tâche supprimée avec succès !", {
+      toast.success(t`Tâche supprimée avec succès !`, {
         duration: 3500 /* 3.5s of popup duration */,
       });
     } catch (err) {

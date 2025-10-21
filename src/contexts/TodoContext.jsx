@@ -74,7 +74,7 @@ export const TodoProvider = ({ children }) => {
       });
     },
     unarchiveTodo: async (todo) => {
-      await addToAPI(todo.text, todo.id);
+      await addToAPI(todo.text, todo.id, true);
       dispatch({
         type: TODO_ACTIONS.UNARCHIVE,
         payload: todo,

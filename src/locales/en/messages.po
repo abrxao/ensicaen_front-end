@@ -45,6 +45,10 @@ msgstr "Add the new task"
 msgid "Ajouter une nouvelle tâche"
 msgstr "Add a new task"
 
+#: src/components/LoadingScreen/index.jsx:12
+msgid "Bienvenue à votre solution d'organisation"
+msgstr "Welcome to your organization solution"
+
 #: src/components/DropDownLangue/DropDownLangue.jsx:13
 msgid "bouton pour changer la langue"
 msgstr "button to change the language"
@@ -70,25 +74,30 @@ msgstr "Light"
 msgid "Complet({0})"
 msgstr "Completed({0})"
 
-#: src/components/TodoGroup/TodoStatus/index.jsx:60
+#: src/components/TodoGroup/TodoStatus/index.jsx:47
 msgid "complets"
 msgstr "completed"
+
+#. placeholder {0}: todo.text
+#: src/components/TodoGroup/TodoItem/index.jsx:97
+msgid "Désarchiver la tâche \"{0}\""
+msgstr "Unarchive the task \"{0}\""
 
 #: src/components/TodoGroup/TodoList/EmptyTodoList.jsx:8
 msgid "Il n'y a rien la "
 msgstr "There's nothing here"
 
 #. placeholder {0}: todo.text
-#: src/components/TodoGroup/TodoItem/index.jsx:66
+#: src/components/TodoGroup/TodoItem/index.jsx:71
 msgid "Marquer la tâche \"{0}\" comme complétée"
 msgstr "Mark task \"{0}\" as completed"
 
 #. placeholder {0}: todo.text
-#: src/components/TodoGroup/TodoItem/index.jsx:99
+#: src/components/TodoGroup/TodoItem/index.jsx:114
 msgid "Modifier la tâche \"{0}\""
 msgstr "Edit task \"{0}\""
 
-#: src/components/TodoGroup/TodoItem/index.jsx:77
+#: src/components/TodoGroup/TodoItem/index.jsx:82
 msgid "Modifier le texte de la tâche"
 msgstr "Edit the task text"
 
@@ -108,7 +117,7 @@ msgstr "Page not found"
 #~ msgid "Pour faire"
 #~ msgstr "To-Do"
 
-#: src/components/TodoGroup/TodoStatus/index.jsx:80
+#: src/components/TodoGroup/TodoStatus/index.jsx:67
 msgid "restantes"
 msgstr "remaining"
 
@@ -116,7 +125,7 @@ msgstr "remaining"
 msgid "Retour à l'accueil"
 msgstr "Back to home"
 
-#: src/components/TodoGroup/TodoItem/index.jsx:92
+#: src/components/TodoGroup/TodoItem/index.jsx:107
 msgid "Sauvegarder les modifications"
 msgstr "Save changes"
 
@@ -125,9 +134,25 @@ msgid "Sistéme"
 msgstr "System"
 
 #. placeholder {0}: todo.text
-#: src/components/TodoGroup/TodoItem/index.jsx:107
+#: src/components/TodoGroup/TodoItem/index.jsx:123
 msgid "Supprimer la tâche \"{0}\""
 msgstr "Delete task \"{0}\""
+
+#: src/hooks/useTodoAPI.jsx:66
+msgid "Tâche ajoutée avec succès !"
+msgstr "Task successfully added !"
+
+#: src/hooks/useTodoAPI.jsx:65
+msgid "Tâche désarchivée avec succès !"
+msgstr "Task successfully unarchived !"
+
+#: src/hooks/useTodoAPI.jsx:89
+msgid "Tâche mise à jour avec succès !"
+msgstr "Task successfully updated !"
+
+#: src/hooks/useTodoAPI.jsx:104
+msgid "Tâche supprimée avec succès !"
+msgstr "Task successfully deleted !"
 
 #: src/components/NavigationMenu/index.jsx:108
 #: src/components/NavigationMenu/index.jsx:113
@@ -146,14 +171,18 @@ msgstr "Archiveds Tasks"
 msgid "Tous"
 msgstr "All"
 
-#: src/components/TodoGroup/TodoStatus/index.jsx:72
+#: src/components/TodoGroup/TodoStatus/index.jsx:59
 msgid "Tout a fait"
 msgstr "All done"
 
-#: src/components/TodoGroup/TodoStatus/index.jsx:50
+#: src/components/ArchivedTaskList/index.jsx:15
+msgid "Votre tâches archivées"
+msgstr "Your Archived Tasks"
+
+#: src/components/TodoGroup/TodoStatus/index.jsx:37
 msgid "Votre tâches completition status"
 msgstr "Your tasks completion status"
 
-#: src/components/TodoGroup/TodoStatus/index.jsx:52
+#: src/components/TodoGroup/TodoStatus/index.jsx:39
 msgid "Vous n'avez pas de tâches"
 msgstr "You have no tasks"

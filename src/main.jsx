@@ -17,11 +17,11 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <ThemeProvider>
       <HashRouter>
-        <TodoProvider>
-          <I18nProvider i18n={i18n}>
+        <I18nProvider i18n={i18n}>
+          <TodoProvider>
             <App />
-          </I18nProvider>
-        </TodoProvider>
+          </TodoProvider>
+        </I18nProvider>
       </HashRouter>
     </ThemeProvider>
   </StrictMode>
