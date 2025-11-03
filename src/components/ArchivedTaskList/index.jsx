@@ -10,14 +10,16 @@ export function ArchivedTaskList() {
   return (
     <div>
       {state.archivedTodos.length != 0 && (
-        <h2>
-          <Archive size={28} />
-          <Trans>Votre tâches archivées</Trans>
-        </h2>
+        <div className="archived-title">
+          <Archive size={24} c />
+          <h2>
+            <Trans>Votre tâches archivées</Trans>
+          </h2>
+        </div>
       )}
 
       <div className="todo-list">
-        {state.archivedTodos.map((todo, _) => (
+        {state.archivedTodos.map((todo) => (
           <TodoItem key={todo.id} todo={todo} archived={true} />
         ))}
         {!state.archivedTodos.length && <EmptyTodoList />}
