@@ -36,6 +36,11 @@ export function TodoItem({ todo, archived = false }) {
     await actions.deleteTodo({ ...todo });
     setIsLoading(false);
   }
+  async function handleToggleTodo() {
+    setIsLoading(true);
+    await actions.toggleTodo({ ...todo });
+    setIsLoading(false);
+  }
   async function handleUnarchive() {
     setIsLoading(true);
     await actions.unarchiveTodo({ ...todo });
@@ -63,13 +68,16 @@ export function TodoItem({ todo, archived = false }) {
   }
   return (
     <div className="todo-item" data-completed={todo.completed}>
-      <input
-        type="checkbox"
-        checked={todo.completed}
-        onChange={() => actions.toggleTodo({ ...todo })}
-        className="todo-checkbox"
-        aria-label={t`Marquer la tâche "${todo.text}" comme complétée`}
-      />
+      {!archived && (
+        <input
+          disabled={isLoading}
+          type="checkbox"
+          checked={todo.completed}
+          onChange={handleToggleTodo}
+          className="todo-checkbox"
+          aria-label={t`Marquer la tâche "${todo.text}" comme complétée`}
+        />
+      )}
       {todo.isEditing && !archived ? (
         <InputText
           autoFocus
