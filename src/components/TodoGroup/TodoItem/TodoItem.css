@@ -10,6 +10,12 @@
   box-shadow: 0 4px 4px var(--color-shadow);
   transition: background-color 0.3s;
 }
+
+.todo-item .todo-checkbox:disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
 .todo-item:hover {
   background-color: var(--color-bg-accent_2);
 }
