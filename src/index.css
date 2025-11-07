@@ -13,4 +13,5 @@
 @import "/src/components/TodoGroup/TodoStatus/TodoStatus.css";
 @import "/src/components/Header/Header.css";
 @import "/src/components/LoadingScreen/LoadingScreen.css";
+@import "/src/components/ArchivedTaskList/ArchivedTaskList.css";
 @import "/src/components/ErrorsPage/PageNotFound.css";
