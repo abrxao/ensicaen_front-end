@@ -1,20 +1,15 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import { ThemeContext } from "src/hooks/useTheme";
 
-// 1. Cria o contexto
-const ThemeContext = createContext();
-
-// 2. Cria o provedor do contexto
-export function ThemeProvider({ children }) {
-  // Lê o tema do localStorage ou define 'system' como padrão
+export default function ThemeProvider({ children }) {
   const [theme, setTheme] = useState(
-    () => localStorage.getItem("theme") || "system"
+    () => localStorage.getItem("theme") || "system",
   );
 
   useEffect(() => {
     const root = window.document.documentElement;
     const isDark = window.matchMedia("(prefers-color-scheme: dark)");
 
-    // Função para aplicar o tema correto
     const applyTheme = (newTheme) => {
       const systemIsDark = isDark.matches;
 
@@ -25,14 +20,11 @@ export function ThemeProvider({ children }) {
       }
     };
 
-    // Aplica o tema quando o estado 'theme' muda
     applyTheme(theme);
 
-    // Salva a preferência no localStorage
     localStorage.setItem("theme", theme);
 
-    // Ouve mudanças na preferência do sistema
-    const handleSystemThemeChange = (e) => {
+    const handleSystemThemeChange = () => {
       if (theme === "system") {
         applyTheme("system");
       }
@@ -40,24 +32,14 @@ export function ThemeProvider({ children }) {
 
     isDark.addEventListener("change", handleSystemThemeChange);
 
-    // Limpeza do efeito
     return () => {
       isDark.removeEventListener("change", handleSystemThemeChange);
     };
-  }, [theme]); // Roda o efeito sempre que o tema mudar
+  }, [theme]);
 
   const value = { theme, setTheme };
 
   return (
     <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
   );
-}
-
-// 3. Cria um hook customizado para usar o contexto facilmente
-export function useTheme() {
-  const context = useContext(ThemeContext);
-  if (context === undefined) {
-    throw new Error("useTheme must be used within a ThemeProvider");
-  }
-  return context;
 }

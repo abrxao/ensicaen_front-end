@@ -33,7 +33,9 @@
   background: none;
   border: none;
   cursor: pointer;
-  transition: background-color 0.2s, color 0.2s;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
   height: 100%;
 }
 

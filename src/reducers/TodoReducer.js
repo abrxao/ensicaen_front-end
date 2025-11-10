@@ -31,7 +31,7 @@ export const todoReducer = (state, action) => {
       };
     case TODO_ACTIONS.UPDATE:
       const updatedTodos = state.todos.map((todo) =>
-        todo.id === action.payload.id ? action.payload : todo
+        todo.id === action.payload.id ? action.payload : todo,
       );
       return {
         ...state,
@@ -47,7 +47,7 @@ export const todoReducer = (state, action) => {
       const toggledTodos = state.todos.map((todo) =>
         todo.id === action.payload.id
           ? { ...todo, completed: !todo.completed }
-          : todo
+          : todo,
       );
       return {
         ...state,
@@ -55,7 +55,7 @@ export const todoReducer = (state, action) => {
       };
     case TODO_ACTIONS.START_EDIT:
       const startEditTodos = state.todos.map((todo) =>
-        todo.id === action.payload.id ? { ...todo, isEditing: true } : todo
+        todo.id === action.payload.id ? { ...todo, isEditing: true } : todo,
       );
       return {
         ...state,
@@ -63,7 +63,7 @@ export const todoReducer = (state, action) => {
       };
     case TODO_ACTIONS.CANCEL_EDIT:
       const cancelEditTodos = state.todos.map((todo) =>
-        todo.id === action.payload.id ? { ...todo, isEditing: false } : todo
+        todo.id === action.payload.id ? { ...todo, isEditing: false } : todo,
       );
       return {
         ...state,
@@ -79,7 +79,7 @@ export const todoReducer = (state, action) => {
         ...state,
         todos: [action.payload, ...state.todos],
         archivedTodos: state.archivedTodos.filter(
-          (todo) => todo.id !== action.payload.id
+          (todo) => todo.id !== action.payload.id,
         ),
       };
   }
