@@ -3,7 +3,7 @@ import { ThemeContext } from "src/hooks/useTheme";
 
 export default function ThemeProvider({ children }) {
   const [theme, setTheme] = useState(
-    () => localStorage.getItem("theme") || "system"
+    () => localStorage.getItem("theme") || "system",
   );
 
   useEffect(() => {

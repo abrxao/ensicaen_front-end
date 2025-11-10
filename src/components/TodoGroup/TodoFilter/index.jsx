@@ -26,7 +26,7 @@ export default function TodoFilter() {
         <Trans>Actif</Trans> (
         {state.todos.reduce(
           (sum, todo) => (!todo.completed ? sum + 1 : sum),
-          0
+          0,
         )}
         )
       </ButtonIcon>
@@ -40,7 +40,7 @@ export default function TodoFilter() {
           Complet(
           {state.todos.reduce(
             (sum, todo) => (todo.completed ? sum + 1 : sum),
-            0
+            0,
           )}
           )
         </Trans>

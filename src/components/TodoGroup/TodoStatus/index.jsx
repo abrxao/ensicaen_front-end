@@ -19,7 +19,7 @@ export default function TodoStatus() {
     const numOfTodos = state.todos.length;
     const completedTodos = state.todos.reduce(
       (sum, todo) => (todo.completed ? sum + 1 : sum),
-      0
+      0,
     );
     setStatus({ all: numOfTodos, completed: completedTodos });
     if (numOfTodos) {

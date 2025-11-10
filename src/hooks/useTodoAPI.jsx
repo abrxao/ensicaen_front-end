@@ -66,7 +66,7 @@ export const useTodoAPI = () => {
           : t`Tâche ajoutée avec succès !`,
         {
           duration: 3500 /* 3.5s of popup duration */,
-        }
+        },
       );
     } catch (error) {
       setError("Impossible d'ajouter la tâche.");
@@ -83,8 +83,8 @@ export const useTodoAPI = () => {
       });
       setTodos((prevTodos) =>
         prevTodos.map((todo) =>
-          todo.id === id ? { ...todo, ...updates } : todo
-        )
+          todo.id === id ? { ...todo, ...updates } : todo,
+        ),
       );
       toast.success(t`Tâche mise à jour avec succès !`, {
         duration: 3500 /* 3.5s of popup duration */,

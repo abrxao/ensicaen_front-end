@@ -131,8 +131,8 @@ export default function Navbar() {
     if (!menubarRef.current) return;
     const items = Array.from(
       menubarRef.current.querySelectorAll(
-        '[role="menuitem"]:not([data-submenu-index])'
-      )
+        '[role="menuitem"]:not([data-submenu-index])',
+      ),
     );
     const nextIndex = (currentIndex + direction + items.length) % items.length;
     items[nextIndex]?.focus();
@@ -182,7 +182,7 @@ export default function Navbar() {
         const nextIndex = (currentIndex + 1) % children.length;
         menubarRef.current
           ?.querySelector(
-            `[data-submenu="${parentId}"] [data-submenu-index="${nextIndex}"]`
+            `[data-submenu="${parentId}"] [data-submenu-index="${nextIndex}"]`,
           )
           ?.focus();
         break;
@@ -192,7 +192,7 @@ export default function Navbar() {
           (currentIndex - 1 + children.length) % children.length;
         menubarRef.current
           ?.querySelector(
-            `[data-submenu="${parentId}"] [data-submenu-index="${prevIndex}"]`
+            `[data-submenu="${parentId}"] [data-submenu-index="${prevIndex}"]`,
           )
           ?.focus();
         break;
