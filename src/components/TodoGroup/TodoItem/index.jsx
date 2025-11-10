@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { useTodoContext } from "src/contexts/TodoContext";
 import ButtonIcon from "src/components/ui/ButtonIcon";
 import InputText from "src/components/ui/InputText";
 import { ArchiveRestore, Pencil, Save, Trash } from "lucide-react";
 import { useLingui } from "@lingui/react/macro";
+import useTodoContext from "src/hooks/useTodoContext";
 
 export function TodoItem({ todo, archived = false }) {
   const { actions } = useTodoContext();

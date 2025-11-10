@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { toast } from "react-hot-toast";
-import { useTodoContext } from "src/contexts/TodoContext";
 import { useLingui } from "@lingui/react/macro";
+import useTodoContext from "./useTodoContext";
 const BASE_URL = "https://dummyjson.com";
 export const USER_ID = 1;
 
@@ -33,8 +33,8 @@ export const useTodoAPI = () => {
       }));
       setTodos(adaptedTodos);
       actions.setTodos(adaptedTodos);
-    } catch (err) {
-      setError(err.message);
+    } catch (error) {
+      setError(error.message);
     } finally {
       setTimeout(() => setLoading(false), 1000); // time for loading animation be completed
     }
@@ -68,19 +68,19 @@ export const useTodoAPI = () => {
           duration: 3500 /* 3.5s of popup duration */,
         }
       );
-    } catch (err) {
+    } catch (error) {
       setError("Impossible d'ajouter la tâche.");
+      console.error(error);
     }
   };
 
   const updateTodo = async (id, updates) => {
     try {
-      const response = await fetch(`${BASE_URL}/todos/${id}`, {
+      await fetch(`${BASE_URL}/todos/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(updates),
       });
-      const updatedTodo = await response.json();
       setTodos((prevTodos) =>
         prevTodos.map((todo) =>
           todo.id === id ? { ...todo, ...updates } : todo
@@ -89,8 +89,9 @@ export const useTodoAPI = () => {
       toast.success(t`Tâche mise à jour avec succès !`, {
         duration: 3500 /* 3.5s of popup duration */,
       });
-    } catch (err) {
+    } catch (error) {
       setError("Impossible de mettre à jour la tâche.");
+      console.error(error);
     }
   };
 
@@ -104,8 +105,9 @@ export const useTodoAPI = () => {
       toast.success(t`Tâche supprimée avec succès !`, {
         duration: 3500 /* 3.5s of popup duration */,
       });
-    } catch (err) {
+    } catch (error) {
       setError("Impossible de supprimer la tâche.");
+      console.error(error);
     }
   };
 

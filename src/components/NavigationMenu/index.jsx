@@ -93,10 +93,8 @@ function DropDownMenu({ handleSubmenuKeyDown, setActiveDropdown, item }) {
 }
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const menubarRef = useRef(null);
-  const mobileMenuRef = useRef(null);
   const { _ } = useLingui();
 
   // Configuration des éléments de navigation
@@ -221,13 +219,6 @@ export default function Navbar() {
     const handleClickOutside = (event) => {
       if (menubarRef.current && !menubarRef.current.contains(event.target)) {
         setActiveDropdown(null);
-      }
-      if (
-        mobileMenuRef.current &&
-        !mobileMenuRef.current.contains(event.target) &&
-        !event.target.closest('[aria-label="Toggle menu"]')
-      ) {
-        setIsOpen(false);
       }
     };
 

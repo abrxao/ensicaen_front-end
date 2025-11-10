@@ -1,7 +1,7 @@
 import { Trans } from "@lingui/react/macro";
 import { ArrowBigRightDash } from "lucide-react";
 import { useEffect, useState } from "react";
-import { useTodoContext } from "src/contexts/TodoContext";
+import useTodoContext from "src/hooks/useTodoContext";
 
 export default function TodoStatus() {
   const { state } = useTodoContext();

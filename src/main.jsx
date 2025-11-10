@@ -6,9 +6,9 @@ import { I18nProvider } from "@lingui/react";
 import mFR from "./locales/fr/messages";
 import mEN from "./locales/en/messages";
 import "./index.css";
-import { ThemeProvider } from "./contexts/ThemeContext.jsx";
+import ThemeProvider from "./contexts/ThemeContext.jsx";
 import { HashRouter } from "react-router";
-import { TodoProvider } from "./contexts/TodoContext.jsx";
+import TodoProvider from "./contexts/TodoContext.jsx";
 
 i18n.load({ fr: mFR.messages, en: mEN.messages });
 i18n.activate("fr");
