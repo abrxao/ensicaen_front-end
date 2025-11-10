@@ -1,23 +1,13 @@
-import { createContext, useReducer, useContext } from "react";
+import { useReducer } from "react";
 import {
   initialState,
   todoReducer,
   TODO_ACTIONS,
 } from "src/reducers/TodoReducer";
 import { useTodoAPI } from "src/hooks/useTodoAPI";
+import { TodoContext } from "src/hooks/useTodoContext";
 
-// Step 1: Create a Context
-const TodoContext = createContext(initialState);
-
-export const useTodoContext = () => {
-  const context = useContext(TodoContext);
-  if (!context) {
-    throw new Error("useTodoContext must be used within TodoProvider");
-  }
-  return context;
-};
-
-export const TodoProvider = ({ children }) => {
+export default function TodoProvider({ children }) {
   const [state, dispatch] = useReducer(todoReducer, initialState);
   const {
     deleteTodo: deleteFromAPI,
@@ -109,4 +99,4 @@ export const TodoProvider = ({ children }) => {
   };
 
   return <TodoContext.Provider value={value}>{children}</TodoContext.Provider>;
-};
+}

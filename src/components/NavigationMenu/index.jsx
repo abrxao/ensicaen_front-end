@@ -93,10 +93,8 @@ function DropDownMenu({ handleSubmenuKeyDown, setActiveDropdown, item }) {
 }
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const menubarRef = useRef(null);
-  const mobileMenuRef = useRef(null);
   const { _ } = useLingui();
 
   // Configuration des éléments de navigation
@@ -133,8 +131,8 @@ export default function Navbar() {
     if (!menubarRef.current) return;
     const items = Array.from(
       menubarRef.current.querySelectorAll(
-        '[role="menuitem"]:not([data-submenu-index])'
-      )
+        '[role="menuitem"]:not([data-submenu-index])',
+      ),
     );
     const nextIndex = (currentIndex + direction + items.length) % items.length;
     items[nextIndex]?.focus();
@@ -184,7 +182,7 @@ export default function Navbar() {
         const nextIndex = (currentIndex + 1) % children.length;
         menubarRef.current
           ?.querySelector(
-            `[data-submenu="${parentId}"] [data-submenu-index="${nextIndex}"]`
+            `[data-submenu="${parentId}"] [data-submenu-index="${nextIndex}"]`,
           )
           ?.focus();
         break;
@@ -194,7 +192,7 @@ export default function Navbar() {
           (currentIndex - 1 + children.length) % children.length;
         menubarRef.current
           ?.querySelector(
-            `[data-submenu="${parentId}"] [data-submenu-index="${prevIndex}"]`
+            `[data-submenu="${parentId}"] [data-submenu-index="${prevIndex}"]`,
           )
           ?.focus();
         break;
@@ -221,13 +219,6 @@ export default function Navbar() {
     const handleClickOutside = (event) => {
       if (menubarRef.current && !menubarRef.current.contains(event.target)) {
         setActiveDropdown(null);
-      }
-      if (
-        mobileMenuRef.current &&
-        !mobileMenuRef.current.contains(event.target) &&
-        !event.target.closest('[aria-label="Toggle menu"]')
-      ) {
-        setIsOpen(false);
       }
     };
 

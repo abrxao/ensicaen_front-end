@@ -1,7 +1,7 @@
 import { Trans, useLingui } from "@lingui/react/macro";
 import { CheckCircle, Circle, ListCheck } from "lucide-react";
 import ButtonIcon from "src/components/ui/ButtonIcon";
-import { useTodoContext } from "src/contexts/TodoContext";
+import useTodoContext from "src/hooks/useTodoContext";
 
 export default function TodoFilter() {
   const { actions, state } = useTodoContext();
@@ -26,7 +26,7 @@ export default function TodoFilter() {
         <Trans>Actif</Trans> (
         {state.todos.reduce(
           (sum, todo) => (!todo.completed ? sum + 1 : sum),
-          0
+          0,
         )}
         )
       </ButtonIcon>
@@ -40,7 +40,7 @@ export default function TodoFilter() {
           Complet(
           {state.todos.reduce(
             (sum, todo) => (todo.completed ? sum + 1 : sum),
-            0
+            0,
           )}
           )
         </Trans>

@@ -1,7 +1,7 @@
 import { Trans } from "@lingui/react/macro";
 import { ArrowBigRightDash } from "lucide-react";
 import { useEffect, useState } from "react";
-import { useTodoContext } from "src/contexts/TodoContext";
+import useTodoContext from "src/hooks/useTodoContext";
 
 export default function TodoStatus() {
   const { state } = useTodoContext();
@@ -19,7 +19,7 @@ export default function TodoStatus() {
     const numOfTodos = state.todos.length;
     const completedTodos = state.todos.reduce(
       (sum, todo) => (todo.completed ? sum + 1 : sum),
-      0
+      0,
     );
     setStatus({ all: numOfTodos, completed: completedTodos });
     if (numOfTodos) {
