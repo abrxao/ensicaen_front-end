@@ -41,7 +41,11 @@ export default function TodoProvider({ children }) {
       await updateFromAPI(update.id, { text: update.text });
       dispatch({
         type: TODO_ACTIONS.UPDATE,
-        payload: { id: update.id, text: update.text },
+        payload: {
+          id: update.id,
+          text: update.text,
+          completed: update.completed,
+        },
       });
     },
     startEdit: (todo) => {
