@@ -9,6 +9,8 @@ default:
 
 prettier:
   stage: lint
+  tags:
+    - lint
   rules:
     - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
   script:
@@ -16,6 +18,8 @@ prettier:
 
 eslint:
   stage: lint
+  tags:
+    - lint
   rules:
     - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
   script:
@@ -23,6 +27,8 @@ eslint:
 
 commitlint:
   stage: lint
+  tags:
+    - lint
   rules:
     - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
   variables:
