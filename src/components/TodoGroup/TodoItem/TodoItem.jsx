@@ -46,10 +46,7 @@ function TodoItem({ todo, archived = false }) {
           aria-label={t`Modifier le texte de la tâche`}
         />
       ) : (
-        <span
-          onDoubleClick={startEdit}
-          className="todo-text"
-        >
+        <span onDoubleClick={startEdit} className="todo-text">
           {todo.text}
         </span>
       )}

@@ -26,6 +26,7 @@ export default defineConfig([
     rules: {
       "no-unused-vars": ["error", { varsIgnorePattern: "^[A-Z_]" }],
       "no-case-declarations": "off",
+      "react-refresh/only-export-components": "off",
     },
   },
   eslintConfigPrettier,
