@@ -1,6 +1,6 @@
 import { TodoItem } from "src/components/TodoGroup/TodoItem";
 import EmptyTodoList from "./EmptyTodoList";
-import useTodoContext from "src/hooks/useTodoContext";
+import { useTodoContext } from "src/contexts/TodoContext";
 
 export function TodoList() {
   const { selectors } = useTodoContext();

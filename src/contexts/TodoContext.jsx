@@ -5,7 +5,17 @@ import {
   TODO_ACTIONS,
 } from "src/reducers/TodoReducer";
 import { useTodoAPI } from "src/hooks/useTodoAPI";
-import { TodoContext } from "src/hooks/useTodoContext";
+import { createContext, useContext } from "react";
+
+export const TodoContext = createContext(initialState);
+
+export function useTodoContext() {
+  const context = useContext(TodoContext);
+  if (!context) {
+    throw new Error("useTodoContext must be used within TodoProvider");
+  }
+  return context;
+}
 
 export default function TodoProvider({ children }) {
   const [state, dispatch] = useReducer(todoReducer, initialState);

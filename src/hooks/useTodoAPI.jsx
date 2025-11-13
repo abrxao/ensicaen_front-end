@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 import { useLingui } from "@lingui/react/macro";
-import useTodoContext from "./useTodoContext";
+import { useTodoContext } from "src/contexts/TodoContext";
 const BASE_URL = "https://dummyjson.com";
 export const USER_ID = 1;
 

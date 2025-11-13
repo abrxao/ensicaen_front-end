@@ -1,6 +1,6 @@
 import { Trans, useLingui } from "@lingui/react/macro";
 import DropDown, { Option } from "../ui/DropDown";
-import useTheme from "src/hooks/useTheme";
+import { useTheme } from "src/contexts/ThemeContext";
 
 export function ThemeSwitcher() {
   // Pega o tema atual e a função para alterá-lo do contexto
