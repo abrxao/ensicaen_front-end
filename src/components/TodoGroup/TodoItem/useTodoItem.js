@@ -35,13 +35,13 @@ export function useTodoItem(todo) {
       return;
     }
 
-    await withLoading(() =>
+    await withLoading(() => {
       actions.updateTodo({
         ...todo,
         text: trimmed,
         isEditing: false,
-      })
-    );
+      });
+    });
   }
 
   async function handleKeyDown(event) {
