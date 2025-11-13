@@ -34,4 +34,4 @@ commitlint:
   variables:
     GIT_DEPTH: 0
   script:
-    - npx commitlint --from $CI_MERGE_REQUEST_TARGET_BRANCH_SHA --to $CI_COMMIT_SHA --verbose
+    - npx commitlint --from $CI_MERGE_REQUEST_DIFF_BASE_SHA --to $CI_COMMIT_SHA --verbose
