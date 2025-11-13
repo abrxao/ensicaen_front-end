@@ -7,11 +7,12 @@ import { PATHS } from "src/paths";
 import Header from "./components/Header";
 import TodoFilter from "./components/TodoGroup/TodoFilter";
 import TodoStatus from "./components/TodoGroup/TodoStatus";
-import PageNotFound from "./components/ErrorsPage/PageNotFound";
 import { useTodoAPI } from "./hooks/useTodoAPI";
 import { useEffect } from "react";
 import LoadingScreen from "./components/LoadingScreen";
 import { ArchivedTaskList } from "./components/ArchivedTaskList";
+import PageNotFound from "./components/pages/ErrorsPage/PageNotFound";
+import Home from "./components/pages/Home";
 
 function App() {
   const { loading, fetchTodos } = useTodoAPI();
@@ -37,11 +38,12 @@ function App() {
               </>
             }
           />
-          <Route path={PATHS.HOME.href} element={<></>} />
+          <Route path={PATHS.HOME.href} element={<Home />} />
           <Route
             path={PATHS.ARCHIVED_TODOS.href}
             element={<ArchivedTaskList />}
           />
+          <Route path={""} element={<Home />} />
           <Route path={"*"} element={<PageNotFound />} />
         </Routes>
       </section>
