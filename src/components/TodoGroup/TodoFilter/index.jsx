@@ -1,7 +1,7 @@
 import { Trans, useLingui } from "@lingui/react/macro";
 import { CheckCircle, Circle, ListCheck } from "lucide-react";
 import ButtonIcon from "src/components/ui/ButtonIcon";
-import useTodoContext from "src/hooks/useTodoContext";
+import { useTodoContext } from "src/contexts/TodoContext";
 
 export default function TodoFilter() {
   const { actions, state } = useTodoContext();
