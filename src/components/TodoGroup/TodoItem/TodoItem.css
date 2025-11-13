@@ -33,6 +33,5 @@
   background-color: var(--color-bg-deactivate);
 }
 .todo-item[data-completed="true"] span.todo-text {
-  opacity: 0.5;
   text-decoration: line-through;
 }
