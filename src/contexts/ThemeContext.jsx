@@ -1,10 +1,20 @@
 import { useState, useEffect } from "react";
-import { ThemeContext } from "src/hooks/useTheme";
+import { createContext, useContext } from "react";
+
+export const ThemeContext = createContext();
+
+export function useTheme() {
+  const context = useContext(ThemeContext);
+  if (context === undefined) {
+    throw new Error("useTheme must be used within a ThemeProvider");
+  }
+  return context;
+}
 
 export default function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState(
-    () => localStorage.getItem("theme") || "system",
-  );
+  const [theme, setTheme] = useState(() => {
+    localStorage.getItem("theme") || "system";
+  });
 
   useEffect(() => {
     const root = window.document.documentElement;
