@@ -64,14 +64,6 @@ function TodoItem({ todo, archived = false }) {
             >
               <ArchiveRestore size={16} />
             </ButtonIcon>
-
-            <ButtonIcon
-              onClick={handleDelete}
-              disabled={isLoading}
-              aria-label={t`Supprimer définitivement la tâche "${todo.text}"`}
-            >
-              <Trash size={16} />
-            </ButtonIcon>
           </>
         ) : (
           <>
