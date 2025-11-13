@@ -79,11 +79,9 @@
   /* Usa o fundo principal e a borda */
   background-color: var(--color-bg);
   border: 1px solid var(--color-border);
-  border-top: none;
   /* Sombra leve */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 0.5rem 0;
-  border-radius: 0 0 4px 4px;
+  border-radius: 4px;
 }
 
 :root.dark .navbar-dropdown {
@@ -98,7 +96,7 @@
 
 .navbar-dropdown-item {
   display: block;
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1rem;
   /* Usa a cor de texto padrão */
   color: var(--color-text);
   text-decoration: none;
