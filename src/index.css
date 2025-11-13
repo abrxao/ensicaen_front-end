@@ -14,4 +14,4 @@
 @import "/src/components/Header/Header.css";
 @import "/src/components/LoadingScreen/LoadingScreen.css";
 @import "/src/components/ArchivedTaskList/ArchivedTaskList.css";
-@import "/src/components/ErrorsPage/PageNotFound.css";
+@import "/src/components/pages/ErrorsPage/PageNotFound.css";

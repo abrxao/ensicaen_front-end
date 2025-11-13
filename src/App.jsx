@@ -7,11 +7,11 @@ import { PATHS } from "src/paths";
 import Header from "./components/Header";
 import TodoFilter from "./components/TodoGroup/TodoFilter";
 import TodoStatus from "./components/TodoGroup/TodoStatus";
-import PageNotFound from "./components/ErrorsPage/PageNotFound";
 import { useTodoAPI } from "./hooks/useTodoAPI";
 import { useEffect } from "react";
 import LoadingScreen from "./components/LoadingScreen";
 import { ArchivedTaskList } from "./components/ArchivedTaskList";
+import PageNotFound from "./components/pages/ErrorsPage/PageNotFound";
 
 function App() {
   const { loading, fetchTodos } = useTodoAPI();
