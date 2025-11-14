@@ -2,7 +2,7 @@ import { TodoItem } from "src/components/TodoGroup/TodoItem";
 import EmptyTodoList from "src/components/TodoGroup/TodoList/EmptyTodoList";
 import { Trans } from "@lingui/react/macro";
 import { Archive } from "lucide-react";
-import useTodoContext from "src/hooks/useTodoContext";
+import { useTodoContext } from "src/contexts/TodoContext";
 
 export function ArchivedTaskList() {
   const { state } = useTodoContext();

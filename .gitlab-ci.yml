@@ -1,0 +1,37 @@
+stages:
+  - lint
+
+default:
+  image: node:lts
+  
+  before_script:
+    - npm ci
+
+prettier:
+  stage: lint
+  tags:
+    - lint
+  rules:
+    - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
+  script:
+    - npm run lint:prettier:check
+
+eslint:
+  stage: lint
+  tags:
+    - lint
+  rules:
+    - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
+  script:
+    - npm run lint:eslint:check
+
+commitlint:
+  stage: lint
+  tags:
+    - lint
+  rules:
+    - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
+  variables:
+    GIT_DEPTH: 0
+  script:
+    - npx commitlint --from $CI_MERGE_REQUEST_DIFF_BASE_SHA --to $CI_COMMIT_SHA --verbose

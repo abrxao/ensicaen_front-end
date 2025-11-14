@@ -2,7 +2,7 @@ import { useState } from "react";
 import Button from "/src/components/ui/Button";
 import InputText from "/src/components/ui/InputText";
 import { Trans, useLingui } from "@lingui/react/macro";
-import useTodoContext from "src/hooks/useTodoContext";
+import { useTodoContext } from "src/contexts/TodoContext";
 
 export function TodoForm() {
   const { actions } = useTodoContext();
